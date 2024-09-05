@@ -1,5 +1,6 @@
 import React from 'react';
 import Site from './Site';
+import siteStyles from '../styles/siteStyles';
 
 const sites = [
   { siteName: 'GitHub', siteLink: 'https://github.com/Nicknul' },
@@ -12,7 +13,7 @@ const sites = [
 
 const SiteList: React.FC = () => {
   return (
-    <div className="flex space-x-4">
+    <div className={siteStyles.siteListContainer}>
       {sites.map((site, index) => (
         <Site key={index} siteName={site.siteName} siteLink={site.siteLink} />
       ))}
