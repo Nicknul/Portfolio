@@ -3,6 +3,7 @@ import HoverText from './HoverText';
 import ToastMessage from './ToastMessage';
 import useClipboard from '../hooks/useClipboard';
 import useHover from '../hooks/useHover';
+import iconStyles from '../styles/iconStyles';
 
 interface IconProps {
   iconName: string;
@@ -18,8 +19,8 @@ const Icon: React.FC<IconProps> = ({ iconName, iconTextNode, imgSrc, imgAlt, img
   const { isCopied, copyToClipboard } = useClipboard(iconTextNode);
 
   return (
-    <div className="p-2 relative">
-      <div className="fixed bottom-5 right-5 flex items-center space-x-4">
+    <div className={iconStyles.container}>
+      <div className={iconStyles.iconWrapper}>
         {isHovered && <HoverText text={iconTextNode} />}
         <img
           src={imgSrc}
@@ -29,7 +30,7 @@ const Icon: React.FC<IconProps> = ({ iconName, iconTextNode, imgSrc, imgAlt, img
           onClick={copyToClipboard}
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
-          className="cursor-pointer bg-white rounded-full transition-all duration-300 hover:bg-gray-200"
+          className={iconStyles.icon}
         />
       </div>
       <ToastMessage message={`${iconTextNode}이 복사되었습니다.`} isVisible={isCopied} />
