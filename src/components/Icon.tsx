@@ -34,7 +34,7 @@ const Icon: React.FC<IconProps> = ({ iconName, iconTextNode, imgSrc, imgAlt, img
         onClick={handleCopy}
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
-        className="cursor-pointer"
+        className="cursor-pointer bg-white rounded-full hover:bg-gray-200 transition-all duration-300"
       />
       {isHovered && <div className="bg-gray-200 p-2 rounded">{iconTextNode}</div>}
     </div>
