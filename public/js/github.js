@@ -6,7 +6,7 @@ export const github_main = () => {
   tab_menu.appendChild(github);
 
   github.textContent = 'GitHub';
-  hover_github.textContent = 'GitHub 바로가기';
+  hover_github.textContent = 'GitHub 보러가기';
 
   github.addEventListener('mouseover', () => {
     github.style.backgroundColor = 'black';
