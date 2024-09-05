@@ -24,7 +24,7 @@ const Icon: React.FC<IconProps> = ({ iconName, iconTextNode, imgSrc, imgAlt, img
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 flex flex-col items-end">
       <img
         src={imgSrc}
         alt={imgAlt}
