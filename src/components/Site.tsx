@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import siteStyles from '../styles/siteStyles';
+import React from 'react';
+import SiteLink from './SiteLink';
+import useHover from '../hooks/useHover';
 
 interface SiteProps {
   siteName: string;
@@ -7,21 +8,28 @@ interface SiteProps {
 }
 
 const Site: React.FC<SiteProps> = ({ siteName, siteLink }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const { isHovered, handleMouseOver, handleMouseOut } = useHover();
+
+  const handleClick = () => {
+    handleMouseOver();
+    window.open(siteLink, '_blank');
+
+    setTimeout(() => {
+      handleMouseOut();
+    }, 100);
+  };
 
   return (
-    <div>
-      <div
-        className={`${siteStyles.siteContainer} ${isHovered ? siteStyles.hoverActive : siteStyles.hoverInactive}`}
-        onClick={() => window.open(siteLink, '_blank')}
-        onMouseOver={() => setIsHovered(true)}
-        onMouseOut={() => setIsHovered(false)}
-      >
-        {siteName}
-      </div>
-
-      {isHovered && <div className={siteStyles.hoverText}>{siteName} 보러가기</div>}
-    </div>
+    <SiteLink
+      siteName={siteName}
+      siteLink={siteLink}
+      isHovered={isHovered}
+      onClick={handleClick}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      onTouchStart={handleMouseOver}
+      onTouchEnd={handleMouseOut}
+    />
   );
 };
 
