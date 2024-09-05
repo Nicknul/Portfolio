@@ -5,7 +5,7 @@ import Icon from './Icon';
 const iconsData = [
   {
     iconName: 'E-mail',
-    iconTextNode: 'example@example.com',
+    iconTextNode: 'jea7730@gmail.com',
     imgSrc: '../../imgs/email.png',
     imgAlt: 'E-mail',
     imgWidth: 48,
