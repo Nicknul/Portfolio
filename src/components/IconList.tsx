@@ -6,7 +6,7 @@ const iconsData = [
   {
     iconName: 'E-mail',
     iconTextNode: 'jea7730@gmail.com',
-    imgSrc: '../../imgs/email.png',
+    imgSrc: '/imgs/email.png',
     imgAlt: 'E-mail',
     imgWidth: 48,
     imgHeight: 48,
