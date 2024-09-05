@@ -1,3 +1,3 @@
-import { github_main } from './github.js';
+import { github_main } from './tab/github.js';
 
 github_main();
