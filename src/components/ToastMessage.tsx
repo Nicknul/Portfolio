@@ -1,5 +1,5 @@
 import React from 'react';
-import iconStyles from '../styles/iconStyles'; // 스타일 불러오기
+import iconStyles from '../styles/iconStyles';
 
 interface ToastMessageProps {
   message: string;
