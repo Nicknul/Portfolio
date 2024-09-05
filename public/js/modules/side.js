@@ -2,22 +2,21 @@ import { imgs } from '../utils/img.js';
 
 export const side = (icon_name, icon_textNode) => {
   const side_memu = document.getElementById('side-menu');
+
   const bundle = document.createElement('div');
   bundle.className = 'bundle';
   side_memu.appendChild(bundle);
 
   let icon = new Image();
-  icon.id = 'E-mail';
   imgs(icon, '../storage/imgs/email.png', 'E-mail', 48, 48);
-  let hover_icon = document.createElement('div');
-
+  icon.id = 'icons';
   icon.textContent = icon_name;
   icon.style.cursor = 'pointer';
+  bundle.appendChild(icon);
 
+  let hover_icon = document.createElement('div');
   const hover_icon_text = icon_textNode;
   hover_icon.textContent = hover_icon_text;
-
-  bundle.appendChild(icon);
 
   icon.addEventListener('click', () => {
     navigator.clipboard
