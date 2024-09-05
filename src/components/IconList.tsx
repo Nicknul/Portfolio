@@ -15,7 +15,7 @@ const iconsData = [
 
 const IconList: React.FC = () => {
   return (
-    <div id="side-menu" className="flex flex-col items-end">
+    <div className="flex flex-col items-end">
       {iconsData.map((icon, index) => (
         <Icon
           key={index}
