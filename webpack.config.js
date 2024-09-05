@@ -19,26 +19,22 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'], // CSS 관련 로더들
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: './public/index.html', // public/index.html을 템플릿으로 사용
     }),
   ],
   devServer: {
-    static: './dist',
-    hot: true,
+    static: {
+      directory: path.join(__dirname, 'public'), // public 디렉토리를 정적 파일로 서빙
+    },
+    compress: true,
+    port: 3001,
     open: true,
   },
 };
