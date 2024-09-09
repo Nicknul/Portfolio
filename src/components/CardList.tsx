@@ -10,8 +10,8 @@ const CardList: React.FC = () => {
   return (
     <div className="relative w-full h-80 overflow-visible flex justify-center items-center">
       {cards.map((card, index) => {
-        // 포커스된 카드가 위로 살짝 올라가도록 translateY 값을 설정
-        const translateY = focusedCard === index && !isMobile ? '-10px' : '0';
+        const translateX = !isMobile ? `${index * 60}px` : '0'; // 모바일이 아닐 때는 오른쪽으로 이동
+        const translateY = isMobile ? `${index * 60}px` : focusedCard === index ? '-10px' : '0'; // 모바일일 때는 아래로 이동, 포커스된 카드는 위로 살짝 올라감
 
         return (
           <Card
@@ -21,23 +21,24 @@ const CardList: React.FC = () => {
             image={card.image}
             style={{
               zIndex: cards.length - index,
-              transform: `translateX(${index * 60}px) translateY(${translateY})`, // translateX와 translateY를 모두 적용
+              transform: `translateX(${translateX}) translateY(${translateY})`, // translateX와 translateY를 조건에 맞게 적용
             }}
             className={`absolute transition-transform duration-300`}
           />
         );
       })}
+      {/* lg 사이즈 이상에서만 버튼 보이도록 설정 */}
       <Button
         variant="left"
         onClick={focusLeft}
-        className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-20 ${isMobile ? 'pointer-events-none' : ''}`}
+        className={`absolute left-4 top-1/2 transform -translate-y-1/2 z-20 hidden lg:block`}
       >
         왼쪽 버튼
       </Button>
       <Button
         variant="right"
         onClick={focusRight}
-        className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-20 ${isMobile ? 'pointer-events-none' : ''}`}
+        className={`absolute right-4 top-1/2 transform -translate-y-1/2 z-20 hidden lg:block`}
       >
         오른쪽 버튼
       </Button>
