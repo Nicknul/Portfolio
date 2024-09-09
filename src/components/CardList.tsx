@@ -12,6 +12,8 @@ const CardList: React.FC = () => {
       {cards.map((card, index) => {
         const translateX = !isMobile ? `${index * 60}px` : '0';
         const translateY = isMobile ? `${index * 60}px` : focusedCard === index ? '-10px' : '0';
+        const zIndex =
+          focusedCard === index ? cards.length : index < focusedCard ? index : cards.length - (index - focusedCard);
 
         return (
           <Card
@@ -20,7 +22,7 @@ const CardList: React.FC = () => {
             description={card.description}
             image={card.image}
             style={{
-              zIndex: focusedCard === index ? cards.length : cards.length - index,
+              zIndex: zIndex,
               transform: `translateX(${translateX}) translateY(${translateY})`,
             }}
             className={`absolute transition-transform duration-300`}
