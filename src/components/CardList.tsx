@@ -17,6 +17,7 @@ const CardList: React.FC = () => {
           title={card.title}
           category={card.category}
           image={card.image}
+          githubLink={card.githubLink}
           isSelected={selectedCardIndex === index}
           onClick={() => handleCardClick(index)}
         />
