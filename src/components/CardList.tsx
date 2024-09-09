@@ -1,4 +1,3 @@
-// CardList.tsx
 import React from 'react';
 import Card from './Card';
 import { cards } from './CardData';
@@ -6,7 +5,7 @@ import Button from './Button';
 import useCardFocus from '../hooks/useCardFocus';
 
 const CardList: React.FC = () => {
-  const { focusedCard, focusLeft, focusRight, isMobile } = useCardFocus(0, cards.length); // 훅 사용
+  const { focusedCard, focusLeft, focusRight, isMobile } = useCardFocus(0, cards.length);
 
   return (
     <div className="relative w-full h-80 overflow-visible flex justify-center items-center">
@@ -16,9 +15,10 @@ const CardList: React.FC = () => {
           title={card.title}
           description={card.description}
           image={card.image}
+          style={{ zIndex: cards.length - index }}
           className={`absolute transition-transform duration-300 ${
             focusedCard === index && !isMobile ? 'transform translate-y-[-10px]' : ''
-          } ${index === cards.length - 1 ? 'z-10' : `z-${10 - index}`} ${index > 0 ? `-translate-x-${index * 4}` : ''}`}
+          } translate-x-${index * 4}`}
         />
       ))}
       <Button
