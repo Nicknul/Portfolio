@@ -5,7 +5,7 @@ type CardProps = {
   title: string;
   description: string;
   image: string;
-  className?: string; // 추가된 className
+  className?: string;
 };
 
 const Card: React.FC<CardProps> = ({ title, description, image, className }) => {
