@@ -9,18 +9,24 @@ const CardList: React.FC = () => {
 
   return (
     <div className="relative w-full h-80 overflow-visible flex justify-center items-center">
-      {cards.map((card, index) => (
-        <Card
-          key={index}
-          title={card.title}
-          description={card.description}
-          image={card.image}
-          style={{ zIndex: cards.length - index }}
-          className={`absolute transition-transform duration-300 ${
-            focusedCard === index && !isMobile ? 'transform translate-y-[-10px]' : ''
-          } translate-x-${index * 4}`}
-        />
-      ))}
+      {cards.map((card, index) => {
+        // 포커스된 카드가 위로 살짝 올라가도록 translateY 값을 설정
+        const translateY = focusedCard === index && !isMobile ? '-10px' : '0';
+
+        return (
+          <Card
+            key={index}
+            title={card.title}
+            description={card.description}
+            image={card.image}
+            style={{
+              zIndex: cards.length - index,
+              transform: `translateX(${index * 60}px) translateY(${translateY})`, // translateX와 translateY를 모두 적용
+            }}
+            className={`absolute transition-transform duration-300`}
+          />
+        );
+      })}
       <Button
         variant="left"
         onClick={focusLeft}
