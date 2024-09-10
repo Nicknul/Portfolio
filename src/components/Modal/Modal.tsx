@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 type ModalProps = {
   isOpen: boolean;
@@ -8,6 +8,18 @@ type ModalProps = {
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, imageUrl }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -19,10 +31,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, imageUrl }) =>
         >
           닫기
         </button>
-        <div className="w-full h-2/3 bg-gray-200">
-          <img src={imageUrl} alt="Modal 이미지" className="object-cover object-top w-full h-full" />
+        <div className="overflow-y-auto h-full">
+          <div className="w-full h-2/3 bg-gray-200">
+            <img src={imageUrl} alt="Modal 이미지" className="object-cover object-top w-full h-full" />
+          </div>
+          <div className="p-6">{children}</div>
         </div>
-        <div className="p-6 h-2/3 overflow-y-auto">{children}</div>
       </div>
     </div>
   );
