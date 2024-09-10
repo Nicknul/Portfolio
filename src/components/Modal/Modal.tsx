@@ -19,8 +19,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, imageUrl }) =>
         >
           닫기
         </button>
-        <div className="w-full h-2/4 bg-gray-200">
-          <img src={imageUrl} alt="Modal 이미지" className="object-cover w-full h-full" />
+        <div className="w-full h-2/3 bg-gray-200">
+          <img src={imageUrl} alt="Modal 이미지" className="object-cover object-top w-full h-full" />
         </div>
         <div className="p-6 h-2/3 overflow-y-auto">{children}</div>
       </div>
