@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Card from '../Card/Card';
 import Modal from '../Modal/Modal';
 import { cards } from '../../data/CardData';
+import { modalData } from '../../data/ModalData';
 import useIsMobile from './useIsMobile';
 
 const CardList: React.FC = () => {
@@ -42,9 +43,9 @@ const CardList: React.FC = () => {
         ))}
       </div>
       {selectedCardIndex !== null && (
-        <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl="https://via.placeholder.com/600">
-          <h2 className="text-xl font-semibold">{cards[selectedCardIndex].title}</h2>
-          <p className="mt-4">{cards[selectedCardIndex].category}</p>
+        <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={modalData[selectedCardIndex].imageUrl}>
+          <h2 className="text-xl font-semibold">{modalData[selectedCardIndex].title}</h2>
+          <p className="mt-4">{modalData[selectedCardIndex].description}</p>
         </Modal>
       )}
     </>
