@@ -1,12 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import { cards } from './CardData';
 
 const CardList: React.FC = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleCardClick = (index: number) => {
-    setSelectedCardIndex(index);
+    if (isMobile) {
+      setSelectedCardIndex(index);
+    }
   };
 
   return (
@@ -18,8 +34,9 @@ const CardList: React.FC = () => {
           category={card.category}
           image={card.image}
           githubLink={card.githubLink}
-          isSelected={selectedCardIndex === index}
+          isSelected={selectedCardIndex === index && isMobile}
           onClick={() => handleCardClick(index)}
+          isMobile={isMobile}
         />
       ))}
     </div>
