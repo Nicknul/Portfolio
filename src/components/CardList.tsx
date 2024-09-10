@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
-import { cards } from './CardData';
+import Card from './Card/Card';
+import { cards } from '../data/CardData';
 
 const CardList: React.FC = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
