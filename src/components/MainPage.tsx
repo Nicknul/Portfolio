@@ -1,7 +1,7 @@
 import React from 'react';
 import SiteList from './SiteList';
 import IconList from './IconList';
-import CardList from './CardList';
+import CardList from './CardList/CardList';
 
 const MainPage: React.FC = () => {
   return (
