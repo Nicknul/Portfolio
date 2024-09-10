@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Card from '../Card/Card';
 import Modal from '../Modal/Modal';
+import ToggleList from '../Toggle/ToggleList';
 import { cards } from '../../data/CardData';
 import { modalData } from '../../data/ModalData';
-import useIsMobile from './useIsMobile';
+import useIsMobile from '../CardList/useIsMobile';
 
 const CardList: React.FC = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
@@ -46,6 +47,7 @@ const CardList: React.FC = () => {
         <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={modalData[selectedCardIndex].imageUrl}>
           <h2 className="text-xl font-semibold">{modalData[selectedCardIndex].title}</h2>
           <p className="mt-4">{modalData[selectedCardIndex].description}</p>
+          <ToggleList />
         </Modal>
       )}
     </>
