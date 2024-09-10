@@ -42,7 +42,7 @@ const CardList: React.FC = () => {
         ))}
       </div>
       {selectedCardIndex !== null && (
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl="https://via.placeholder.com/600">
           <h2 className="text-xl font-semibold">{cards[selectedCardIndex].title}</h2>
           <p className="mt-4">{cards[selectedCardIndex].category}</p>
         </Modal>
