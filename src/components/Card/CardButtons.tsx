@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button';
+import CardStyles from '../../styles/CardStyles';
 
 type CardButtonsProps = {
   githubLink: string;
@@ -8,13 +9,9 @@ type CardButtonsProps = {
 };
 
 const CardButtons: React.FC<CardButtonsProps> = ({ githubLink, isSelected, isMobile }) => (
-  <div
-    className={`absolute inset-0 flex flex-col justify-center items-center space-y-2 transition-all duration-300 ${
-      isMobile ? (isSelected ? 'block' : 'hidden') : 'opacity-0 group-hover:opacity-100'
-    }`}
-  >
-    <Button label="자세히 보기" className="w-full max-w-[150px]" />
-    <Button label="GitHub 보기" href={githubLink} className="w-full max-w-[150px]" />
+  <div className={CardStyles.buttons(isSelected, isMobile)}>
+    <Button label="자세히 보기" className={CardStyles.buttonBase} />
+    <Button label="GitHub 보기" href={githubLink} className={CardStyles.buttonBase} />
   </div>
 );
 

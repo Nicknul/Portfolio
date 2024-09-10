@@ -1,4 +1,5 @@
 import React from 'react';
+import CardStyles from '../../styles/CardStyles';
 
 type CardContentProps = {
   title: string;
@@ -9,18 +10,8 @@ type CardContentProps = {
 
 const CardContent: React.FC<CardContentProps> = ({ title, category, isSelected, isMobile }) => (
   <div className="p-4">
-    <span
-      className={`text-sm text-gray-500 ${isSelected ? 'text-white' : ''} ${!isMobile ? 'group-hover:text-white' : ''}`}
-    >
-      {category}
-    </span>
-    <h3
-      className={`text-lg sm:text-xl font-semibold mt-2 ${isSelected ? 'text-white' : ''} ${
-        !isMobile ? 'group-hover:text-white' : ''
-      }`}
-    >
-      {title}
-    </h3>
+    <span className={CardStyles.content(isSelected, isMobile).category}>{category}</span>
+    <h3 className={CardStyles.content(isSelected, isMobile).title}>{title}</h3>
   </div>
 );
 
