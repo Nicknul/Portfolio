@@ -12,13 +12,23 @@ type CardProps = {
   isSelected: boolean;
   onClick: () => void;
   isMobile: boolean;
+  openModal: () => void;
 };
 
-const Card: React.FC<CardProps> = ({ title, category, image, githubLink, isSelected, onClick, isMobile }) => (
+const Card: React.FC<CardProps> = ({
+  title,
+  category,
+  image,
+  githubLink,
+  isSelected,
+  onClick,
+  isMobile,
+  openModal,
+}) => (
   <div onClick={onClick} className={CardStyles.container(isSelected, isMobile)}>
     <CardImage image={image} title={title} isSelected={isSelected} isMobile={isMobile} />
     <CardContent title={title} category={category} isSelected={isSelected} isMobile={isMobile} />
-    <CardButtons githubLink={githubLink} isSelected={isSelected} isMobile={isMobile} />
+    <CardButtons githubLink={githubLink} isSelected={isSelected} isMobile={isMobile} openModal={openModal} />
   </div>
 );
 
