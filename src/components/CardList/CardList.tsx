@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Card from '../Card/Card';
 import Modal from '../Modal/Modal';
-import ToggleList from '../Toggle/ToggleList';
 import { cards } from '../../data/CardData';
 import { modalData } from '../../data/ModalData';
 import { toggleData } from '../../data/ToggleData';
+import { modalImages } from '../../data/ModalImageData';
+import ModalContent from '../Modal/ModalContent';
 import useIsMobile from './useIsMobile';
 
 const CardList: React.FC = () => {
@@ -39,6 +40,20 @@ const CardList: React.FC = () => {
         return [];
     }
   };
+
+  const getModalImages = (index: number) => {
+    switch (index) {
+      case 0:
+        return modalImages.erp;
+      case 1:
+        return modalImages.pokemon;
+      case 2:
+        return modalImages.dustApp;
+      default:
+        return [];
+    }
+  };
+
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
@@ -56,10 +71,15 @@ const CardList: React.FC = () => {
           />
         ))}
       </div>
+
       {selectedCardIndex !== null && (
-        <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={modalData[selectedCardIndex].imageUrl}>
-          <h2 className="text-xl font-semibold">{modalData[selectedCardIndex].title}</h2> <br />
-          <ToggleList data={getToggleData(selectedCardIndex)} />
+        <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={cards[selectedCardIndex].image}>
+          <ModalContent
+            title={modalData[selectedCardIndex].title}
+            description={modalData[selectedCardIndex].description}
+            toggleData={getToggleData(selectedCardIndex)}
+            images={getModalImages(selectedCardIndex)}
+          />
         </Modal>
       )}
     </>
