@@ -14,10 +14,10 @@ const Toggle: React.FC<ToggleProps> = ({ title, children }) => {
 
   return (
     <div className="mb-4">
-      <h2 className="text-lg font-semibold cursor-pointer" onClick={toggleContent}>
+      <h2 className="text-lg font-semibold cursor-pointer bg-gray-100 rounded p-2" onClick={toggleContent}>
         {title}
       </h2>
-      {isOpen && <div className="mt-2 p-4 bg-gray-100 rounded">{children}</div>}
+      {isOpen && <div className="mt-2 p-4">{children}</div>}
     </div>
   );
 };
