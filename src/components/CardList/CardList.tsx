@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../Card/Card';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
@@ -36,6 +36,7 @@ const CardList: React.FC = () => {
             description="설명이 없습니다."
             toggleData={getToggleData(selectedCardIndex)}
             images={getModalImages(selectedCardIndex)}
+            isMobile={isMobile}
           />
         </Modal>
       )}
