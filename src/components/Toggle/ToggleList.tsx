@@ -1,11 +1,14 @@
 import React from 'react';
 import Toggle from './Toggle';
-import { toggleData } from '../../data/ToggleData';
 
-const ToggleList: React.FC = () => {
+type ToggleListProps = {
+  data: Array<{ title: string; content: string }>;
+};
+
+const ToggleList: React.FC<ToggleListProps> = ({ data }) => {
   return (
-    <div className="p-8">
-      {toggleData.map((item, index) => (
+    <div>
+      {data.map((item, index) => (
         <Toggle key={index} title={item.title}>
           <p>{item.content}</p>
         </Toggle>
