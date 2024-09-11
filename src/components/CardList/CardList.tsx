@@ -1,58 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from '../Card/Card';
 import Modal from '../Modal/Modal';
-import { cards } from '../../data/CardData';
-import { modalData } from '../../data/ModalData';
-import { toggleData } from '../../data/ToggleData';
-import { modalImages } from '../../data/ModalImageData';
 import ModalContent from '../Modal/ModalContent';
-import useIsMobile from './useIsMobile';
+import { cards } from '../../data/CardData';
+import useCardActions from '../../hooks/useCardActions';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const CardList: React.FC = () => {
-  const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useIsMobile();
-
-  const handleCardClick = (index: number) => {
-    if (isMobile) {
-      setSelectedCardIndex(index);
-    }
-  };
-
-  const openModal = (index: number) => {
-    setSelectedCardIndex(index);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const getToggleData = (index: number) => {
-    switch (index) {
-      case 0:
-        return toggleData.erp;
-      case 1:
-        return toggleData.pokemon;
-      case 2:
-        return toggleData.dustApp;
-      default:
-        return [];
-    }
-  };
-
-  const getModalImages = (index: number) => {
-    switch (index) {
-      case 0:
-        return modalImages.erp;
-      case 1:
-        return modalImages.pokemon;
-      case 2:
-        return modalImages.dustApp;
-      default:
-        return [];
-    }
-  };
+  const { selectedCardIndex, isModalOpen, openModal, closeModal, handleCardClick, getToggleData, getModalImages } =
+    useCardActions();
 
   return (
     <>
@@ -65,7 +22,7 @@ const CardList: React.FC = () => {
             image={card.image}
             githubLink={card.githubLink}
             isSelected={selectedCardIndex === index && isMobile}
-            onClick={() => handleCardClick(index)}
+            onClick={() => handleCardClick(index, isMobile)}
             isMobile={isMobile}
             openModal={() => openModal(index)}
           />
@@ -75,8 +32,8 @@ const CardList: React.FC = () => {
       {selectedCardIndex !== null && (
         <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={cards[selectedCardIndex].image}>
           <ModalContent
-            title={modalData[selectedCardIndex].title}
-            description={modalData[selectedCardIndex].description}
+            title={cards[selectedCardIndex].title}
+            description="설명이 없습니다."
             toggleData={getToggleData(selectedCardIndex)}
             images={getModalImages(selectedCardIndex)}
           />
