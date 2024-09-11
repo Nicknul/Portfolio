@@ -4,7 +4,8 @@ import Modal from '../Modal/Modal';
 import ToggleList from '../Toggle/ToggleList';
 import { cards } from '../../data/CardData';
 import { modalData } from '../../data/ModalData';
-import useIsMobile from '../CardList/useIsMobile';
+import { toggleData } from '../../data/ToggleData';
+import useIsMobile from './useIsMobile';
 
 const CardList: React.FC = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
@@ -26,6 +27,18 @@ const CardList: React.FC = () => {
     setIsModalOpen(false);
   };
 
+  const getToggleData = (index: number) => {
+    switch (index) {
+      case 0:
+        return toggleData.erp;
+      case 1:
+        return toggleData.pokemon;
+      case 2:
+        return toggleData.dustApp;
+      default:
+        return [];
+    }
+  };
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
@@ -45,9 +58,8 @@ const CardList: React.FC = () => {
       </div>
       {selectedCardIndex !== null && (
         <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={modalData[selectedCardIndex].imageUrl}>
-          <h2 className="text-xl font-semibold">{modalData[selectedCardIndex].title}</h2>
-          <p className="mt-4">{modalData[selectedCardIndex].description}</p>
-          <ToggleList />
+          <h2 className="text-xl font-semibold">{modalData[selectedCardIndex].title}</h2> <br />
+          <ToggleList data={getToggleData(selectedCardIndex)} />
         </Modal>
       )}
     </>
