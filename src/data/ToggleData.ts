@@ -1,14 +1,32 @@
-export const toggleData = [
-  {
-    title: '첫 번째 단락',
-    content: '첫 번째 단락의 내용입니다. 제목을 클릭하면 이 내용이 나타나고, 다시 클릭하면 사라집니다.',
-  },
-  {
-    title: '두 번째 단락',
-    content: '두 번째 단락의 내용입니다. 여러 개의 토글을 독립적으로 사용할 수 있습니다.',
-  },
-  {
-    title: '세 번째 단락',
-    content: '세 번째 단락의 내용입니다. 각각의 단락에 다른 정보를 입력할 수 있습니다.',
-  },
-];
+export const toggleData = {
+  erp: [
+    {
+      title: '개요',
+      content: 'ERP 시스템은 기업의 자원을 효율적으로 관리하는 시스템입니다.',
+    },
+    {
+      title: '기술 스택',
+      content: 'React, Node.js, PostgreSQL을 사용하여 개발되었습니다.',
+    },
+  ],
+  pokemon: [
+    {
+      title: '개요',
+      content: '포켓몬 타입별 정보를 제공하는 프로젝트입니다.',
+    },
+    {
+      title: '기술 스택',
+      content: 'React와 PokeAPI를 활용하여 개발되었습니다.',
+    },
+  ],
+  dustApp: [
+    {
+      title: '개요',
+      content: '미세먼지 정보를 실시간으로 제공하는 앱입니다.',
+    },
+    {
+      title: '기술 스택',
+      content: 'React, 공공데이터 API를 사용하여 개발되었습니다.',
+    },
+  ],
+};
