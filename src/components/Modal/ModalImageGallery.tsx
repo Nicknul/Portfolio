@@ -6,9 +6,9 @@ type ModalImageGalleryProps = {
 
 const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images }) => {
   return (
-    <div className="mt-4">
+    <div className="grid grid-cols-4 gap-4">
       {images.map((image, index) => (
-        <img key={index} src={image} alt={`설계 이미지 ${index + 1}`} className="w-full h-auto mb-4" />
+        <img key={index} src={image} alt={`설계 이미지 ${index + 1}`} className="w-full h-auto object-cover rounded" />
       ))}
     </div>
   );
