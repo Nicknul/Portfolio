@@ -9,16 +9,38 @@ type ModalImageGalleryProps = {
 
 const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images, isMobile }) => {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const handleOpenImageModal = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
+  const handleOpenImageModal = (index: number) => {
+    setSelectedIndex(index);
     setIsImageModalOpen(true);
   };
 
   const handleCloseImageModal = () => {
     setIsImageModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
+  };
+
+  const handlePrevImage = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((prevIndex) => {
+        if (prevIndex !== null) {
+          return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
+        }
+        return prevIndex;
+      });
+    }
+  };
+
+  const handleNextImage = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((prevIndex) => {
+        if (prevIndex !== null) {
+          return prevIndex === images.length - 1 ? 0 : prevIndex + 1;
+        }
+        return prevIndex;
+      });
+    }
   };
 
   return (
@@ -33,7 +55,7 @@ const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images, isMobile 
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 backdrop-blur-lg transition-opacity duration-300 rounded-lg"></div>
               <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button
-                  onClick={() => handleOpenImageModal(image)}
+                  onClick={() => handleOpenImageModal(index)}
                   className="border border-white text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-white hover:text-black"
                 >
                   자세히 보기
@@ -43,7 +65,15 @@ const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images, isMobile 
           ))}
         </div>
       )}
-      {isImageModalOpen && selectedImage && <ImageModal imageUrl={selectedImage} onClose={handleCloseImageModal} />}
+      {isImageModalOpen && selectedIndex !== null && (
+        <ImageModal
+          images={images}
+          selectedIndex={selectedIndex}
+          onClose={handleCloseImageModal}
+          onPrev={handlePrevImage}
+          onNext={handleNextImage}
+        />
+      )}
     </>
   );
 };
