@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ModalImageSlider from './ModalImageSlider';
-import ImageModal from './ImageModal'; // 확대 모달 컴포넌트 임포트
+import ImageModal from './ImageModal';
 
 type ModalImageGalleryProps = {
   images: string[];
