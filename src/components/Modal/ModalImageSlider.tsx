@@ -31,7 +31,7 @@ const ModalImageSlider: React.FC<ModalImageSliderProps> = ({ images }) => {
             key={index}
             src={image}
             alt={`설계 이미지 ${index + 1}`}
-            className={`absolute top-0 left-0 w-full h-full object-contain transition-transform duration-500 ${
+            className={`absolute top-0 left-0 w-full h-full object-contain transition-transform duration-150 ${
               index === currentIndex ? 'translate-x-0' : 'translate-x-full'
             }`}
           />
