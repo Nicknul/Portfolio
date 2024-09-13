@@ -9,6 +9,7 @@ type ModalImageSliderProps = {
 const ModalImageSlider: React.FC<ModalImageSliderProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomedIndex, setZoomedIndex] = useState<number | null>(null);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -18,12 +19,32 @@ const ModalImageSlider: React.FC<ModalImageSliderProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
   };
 
+  const handleZoomNext = () => {
+    if (zoomedIndex !== null) {
+      setZoomedIndex((prevIndex) => {
+        if (prevIndex === null) return 0;
+        return (prevIndex + 1) % images.length;
+      });
+    }
+  };
+
+  const handleZoomPrev = () => {
+    if (zoomedIndex !== null) {
+      setZoomedIndex((prevIndex) => {
+        if (prevIndex === null) return images.length - 1;
+        return prevIndex === 0 ? images.length - 1 : prevIndex - 1;
+      });
+    }
+  };
+
   const handleImageClick = () => {
     setIsZoomed(true);
+    setZoomedIndex(currentIndex);
   };
 
   const handleZoomClose = () => {
     setIsZoomed(false);
+    setZoomedIndex(null);
   };
 
   const handlers = useSwipeable({
@@ -35,6 +56,7 @@ const ModalImageSlider: React.FC<ModalImageSliderProps> = ({ images }) => {
 
   return (
     <>
+      {/* 카드 모달 컨텐츠 */}
       <div {...handlers} className="relative w-full h-auto">
         <div className="relative w-full h-64 overflow-hidden">
           {images.map((image, index) => (
@@ -50,8 +72,15 @@ const ModalImageSlider: React.FC<ModalImageSliderProps> = ({ images }) => {
           ))}
         </div>
       </div>
-
-      {isZoomed && <ZoomImageModal image={images[currentIndex]} onClose={handleZoomClose} />}
+      {isZoomed && zoomedIndex !== null && (
+        <ZoomImageModal
+          images={images}
+          currentIndex={zoomedIndex}
+          onClose={handleZoomClose}
+          onNext={handleZoomNext}
+          onPrev={handleZoomPrev}
+        />
+      )}
     </>
   );
 };
