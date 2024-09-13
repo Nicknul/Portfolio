@@ -1,30 +1,30 @@
-import React from 'react';
-import useIsMobile from '../../hooks/useIsMobile';
-import useCardActions from '../../hooks/useCardActions';
-import useCategory from '../../hooks/useCategory';
-import CardListContent from './CardListContent';
+// import React from 'react';
+// import useIsMobile from '../../hooks/useIsMobile';
+// import useCardActions from '../../hooks/useCardActions';
+// import useCategory from '../../hooks/useCategory';
+// import CardListContent from './CardListContent';
 
-const CardList: React.FC = () => {
-  const isMobile = useIsMobile();
-  const { selectedCardIndex, isModalOpen, openModal, closeModal, handleCardClick, getToggleData, getModalImages } =
-    useCardActions();
-  const { filteredCards } = useCategory();
+// const CardList: React.FC = () => {
+//   const isMobile = useIsMobile();
+//   const { selectedCardIndex, isModalOpen, openModal, closeModal, handleCardClick, getToggleData, getModalImages } =
+//     useCardActions();
+//   const { filteredCards } = useCategory();
 
-  return (
-    <>
-      <CardListContent
-        cards={filteredCards}
-        selectedCardIndex={selectedCardIndex}
-        isMobile={isMobile}
-        handleCardClick={handleCardClick}
-        openModal={openModal}
-        closeModal={closeModal}
-        isModalOpen={isModalOpen}
-        getToggleData={getToggleData}
-        getModalImages={getModalImages}
-      />
-    </>
-  );
-};
+//   return (
+//     <>
+//       <CardListContent
+//         cards={filteredCards}
+//         selectedCardIndex={selectedCardIndex}
+//         isMobile={isMobile}
+//         handleCardClick={handleCardClick}
+//         openModal={openModal}
+//         closeModal={closeModal}
+//         isModalOpen={isModalOpen}
+//         getToggleData={getToggleData}
+//         getModalImages={getModalImages}
+//       />
+//     </>
+//   );
+// };
 
-export default CardList;
+// export default CardList;
