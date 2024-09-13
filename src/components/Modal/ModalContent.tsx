@@ -12,7 +12,7 @@ type ModalContentProps = {
 
 const ModalContent: React.FC<ModalContentProps> = ({ title, description, toggleData, images, isMobile }) => {
   return (
-    <div className="p-6 space-y-6">
+    <div className="space-y-6">
       <div className="border-b pb-4">
         <h2 className="text-2xl font-semibold mb-2">{title}</h2>
         <p className="text-gray-700">{description}</p>
