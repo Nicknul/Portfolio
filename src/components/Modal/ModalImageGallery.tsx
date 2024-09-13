@@ -43,6 +43,10 @@ const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images, isMobile 
     }
   };
 
+  const handleSelectImage = (index: number) => {
+    setSelectedIndex(index);
+  };
+
   return (
     <>
       {isMobile ? (
@@ -65,6 +69,7 @@ const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images, isMobile 
           ))}
         </div>
       )}
+
       {isImageModalOpen && selectedIndex !== null && (
         <ImageModal
           images={images}
@@ -72,6 +77,7 @@ const ModalImageGallery: React.FC<ModalImageGalleryProps> = ({ images, isMobile 
           onClose={handleCloseImageModal}
           onPrev={handlePrevImage}
           onNext={handleNextImage}
+          onSelectImage={handleSelectImage}
         />
       )}
     </>
