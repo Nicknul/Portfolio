@@ -1,23 +1,23 @@
-import { useState } from 'react';
-import { cards } from '../data/CardData';
+// import { useState } from 'react';
+// import { cards } from '../data/CardData';
 
-const useCategory = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+// const useCategory = () => {
+//   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const categories = ['All', ...Array.from(new Set(cards.map((card) => card.category)))];
+//   const categories = ['All', ...Array.from(new Set(cards.map((card) => card.category)))];
 
-  const filteredCards = selectedCategory === 'All' ? cards : cards.filter((card) => card.category === selectedCategory);
+//   const filteredCards = selectedCategory === 'All' ? cards : cards.filter((card) => card.category === selectedCategory);
 
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
-  };
+//   const handleCategoryChange = (category: string) => {
+//     setSelectedCategory(category);
+//   };
 
-  return {
-    categories,
-    selectedCategory,
-    filteredCards,
-    handleCategoryChange,
-  };
-};
+//   return {
+//     categories,
+//     selectedCategory,
+//     filteredCards,
+//     handleCategoryChange,
+//   };
+// };
 
-export default useCategory;
+// export default useCategory;
