@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import ModalStyles from '../../styles/ModalStyles';
 
 type ModalProps = {
   isOpen: boolean;
@@ -23,19 +24,16 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, imageUrl }) =>
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white w-4/5 h-4/5 rounded-lg shadow-lg relative overflow-hidden">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded-lg"
-        >
+    <div className={ModalStyles.modalOverlay}>
+      <div className={ModalStyles.modalContainer}>
+        <button onClick={onClose} className={ModalStyles.closeButton}>
           닫기
         </button>
-        <div className="overflow-y-auto h-full">
-          <div className="w-full h-2/3 bg-gray-200">
-            <img src={imageUrl} alt="Modal 이미지" className="object-cover object-top w-full h-full" />
+        <div className={ModalStyles.modalContent}>
+          <div className={ModalStyles.imageContainer}>
+            <img src={imageUrl} alt="Modal 이미지" className={ModalStyles.modalImage} />
           </div>
-          <div className="p-6">{children}</div>
+          <div className={ModalStyles.modalBody}>{children}</div>
         </div>
       </div>
     </div>

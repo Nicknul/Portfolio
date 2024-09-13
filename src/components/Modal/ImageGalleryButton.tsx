@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalStyles from '../../styles/ModalStyles';
 
 type ImageGalleryButtonProps = {
   onClick: () => void;
@@ -6,10 +7,7 @@ type ImageGalleryButtonProps = {
 
 const ImageGalleryButton: React.FC<ImageGalleryButtonProps> = ({ onClick }) => {
   return (
-    <button
-      onClick={onClick}
-      className="border border-white text-white px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-white hover:text-black"
-    >
+    <button onClick={onClick} className={ModalStyles.galleryButton}>
       자세히 보기
     </button>
   );
