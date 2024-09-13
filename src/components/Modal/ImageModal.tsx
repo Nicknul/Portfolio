@@ -1,4 +1,6 @@
 import React from 'react';
+import ImagePreview from './ImagePreview';
+import NavigationButtons from './NavigationButtons';
 
 type ImageModalProps = {
   images: string[];
@@ -18,38 +20,9 @@ const ImageModal: React.FC<ImageModalProps> = ({ images, selectedIndex, onClose,
           alt={`확대된 이미지 ${selectedIndex + 1}`}
           className="max-w-[85vw] max-h-[85vh] object-contain mb-4"
         />
-        <div className="flex space-x-2 overflow-visible">
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`썸네일 이미지 ${index + 1}`}
-              onClick={() => onSelectImage(index)}
-              className={`w-16 h-16 object-cover cursor-pointer rounded-lg transition-transform duration-300 ${
-                index === selectedIndex ? '-translate-y-2' : ''
-              }`}
-            />
-          ))}
-        </div>
+        <ImagePreview images={images} selectedIndex={selectedIndex} onSelectImage={onSelectImage} />
       </div>
-      <button
-        onClick={onPrev}
-        className="fixed left-4 top-1/2 transform -translate-y-1/2 bg-white text-black px-3 py-1 rounded-full z-50"
-      >
-        &lt;
-      </button>
-      <button
-        onClick={onNext}
-        className="fixed right-4 top-1/2 transform -translate-y-1/2 bg-white text-black px-3 py-1 rounded-full z-50"
-      >
-        &gt;
-      </button>
-      <button
-        onClick={onClose}
-        className="fixed top-4 right-4 text-white text-xl bg-black bg-opacity-50 rounded-full px-3 py-1 z-50"
-      >
-        닫기
-      </button>
+      <NavigationButtons onPrev={onPrev} onNext={onNext} onClose={onClose} />
     </div>
   );
 };
