@@ -8,7 +8,6 @@ const PortfolioPage: React.FC = () => {
       <div className="w-full lg:max-w-[40%] mx-auto">
         <Toggle />
         {/* <CardList /> */}
-        <div className="p-20">Portfolio Page</div>
       </div>
     </div>
   );
