@@ -1,30 +1,24 @@
-// import React from 'react';
-// import useIsMobile from '../../hooks/useIsMobile';
-// import useCardActions from '../../hooks/useCardActions';
-// import useCategory from '../../hooks/useCategory';
-// import CardListContent from './CardListContent';
+import React from 'react';
+import CardItem from './CardItem';
+import { cardData } from '../../data/CardData';
 
-// const CardList: React.FC = () => {
-//   const isMobile = useIsMobile();
-//   const { selectedCardIndex, isModalOpen, openModal, closeModal, handleCardClick, getToggleData, getModalImages } =
-//     useCardActions();
-//   const { filteredCards } = useCategory();
+const CardList: React.FC = () => {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      {cardData.map((card, index) => (
+        <CardItem
+          key={index}
+          image={card.image}
+          date={card.date}
+          title={card.title}
+          category={card.category}
+          github={card.github}
+          notion={card.notion}
+          languages={card.languages}
+        />
+      ))}
+    </div>
+  );
+};
 
-//   return (
-//     <>
-//       <CardListContent
-//         cards={filteredCards}
-//         selectedCardIndex={selectedCardIndex}
-//         isMobile={isMobile}
-//         handleCardClick={handleCardClick}
-//         openModal={openModal}
-//         closeModal={closeModal}
-//         isModalOpen={isModalOpen}
-//         getToggleData={getToggleData}
-//         getModalImages={getModalImages}
-//       />
-//     </>
-//   );
-// };
-
-// export default CardList;
+export default CardList;
