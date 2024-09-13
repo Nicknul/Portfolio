@@ -3,7 +3,7 @@ import NavItem from './NavItem';
 
 const NavBar: React.FC = () => {
   return (
-    <nav className="bg-white shadow-md p-4">
+    <nav className="bg-white shadow-md p-4 fixed top-0 left-0 w-full z-50">
       <ul className="flex space-x-6 md:space-x-24 lg:space-x-40 justify-center text-gray-900">
         <NavItem label="Home" href="#home" />
         <NavItem label="Resume" href="#resume" />
