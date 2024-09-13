@@ -20,8 +20,8 @@ const ModalStyles = {
   modalContainer: 'bg-white w-4/5 h-4/5 rounded-lg shadow-lg relative overflow-hidden',
   modalContent: 'overflow-y-auto h-full',
   modalBody: 'p-6',
-  imageContainer: 'w-full h-2/3 bg-gray-200',
-  modalImage: 'object-cover object-top w-full h-full',
+  imageContainer: 'w-full lg:h-2/3 bg-gray-200',
+  modalImage: 'object-cover object-top w-full lg:h-full',
   modalImageWrapper: 'overflow-y-auto h-full',
   modalImageContainer: 'w-full h-2/3 bg-gray-200',
   galleryButton:
