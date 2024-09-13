@@ -10,7 +10,7 @@ const MainPage: React.FC = () => {
         <SiteList />
         <IconList />
       </div>
-      <div className="p-6 bg-gray-100 min-h-screen">
+      <div>
         <ProjectPage />
       </div>
     </>
