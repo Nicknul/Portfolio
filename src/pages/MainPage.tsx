@@ -1,21 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from '../components/NavBar/NavBar';
-import Home from './Home';
-import Resume from './Resume';
-import Portfolio from './Portfolio';
 
-const MainPage: React.FC = () => {
+const App: React.FC = () => {
   return (
-    <Router>
+    <div>
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-      </Routes>
-    </Router>
+      <section id="home" className="h-screen bg-gray-100">
+        <h1 className="text-3xl text-center p-20">Home Section</h1>
+      </section>
+      <section id="resume" className="h-screen bg-gray-200">
+        <h1 className="text-3xl text-center p-20">Resume Section</h1>
+      </section>
+      <section id="portfolio" className="h-screen bg-gray-300">
+        <h1 className="text-3xl text-center p-20">Portfolio Section</h1>
+      </section>
+    </div>
   );
 };
 
-export default MainPage;
+export default App;
