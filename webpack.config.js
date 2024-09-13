@@ -20,18 +20,19 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'], // CSS 관련 로더들
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // public/index.html을 템플릿으로 사용
+      template: './public/index.html',
     }),
   ],
   devServer: {
+    historyApiFallback: true,
     static: {
-      directory: path.join(__dirname, 'public'), // public 디렉토리를 정적 파일로 서빙
+      directory: path.join(__dirname, 'public'),
     },
     compress: true,
     port: 3001,
