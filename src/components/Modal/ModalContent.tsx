@@ -21,7 +21,7 @@ const ModalContent: React.FC<ModalContentProps> = ({ title, description, toggleD
         <ToggleList data={toggleData} />
       </div>
       <div className="pt-4">
-        <h3 className="text-gray-700 font-semibold mb-2">갤러리</h3>
+        <h3 className="text-gray-700 mb-2">갤러리</h3>
         <ModalImageGallery images={images} isMobile={isMobile} />
       </div>
     </div>
