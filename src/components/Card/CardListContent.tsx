@@ -38,7 +38,7 @@ const CardListContent: React.FC<CardListContentProps> = ({
         <Modal isOpen={isModalOpen} onClose={closeModal} imageUrl={cards[selectedCardIndex].image}>
           <ModalContent
             title={cards[selectedCardIndex].title}
-            description="설명이 없습니다."
+            description={cards[selectedCardIndex].description}
             toggleData={getToggleData(selectedCardIndex)}
             images={getModalImages(selectedCardIndex)}
             isMobile={isMobile}
