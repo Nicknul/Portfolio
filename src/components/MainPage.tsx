@@ -8,10 +8,10 @@ const MainPage: React.FC = () => {
     <>
       <div className="p-6 bg-gray-100 min-h-screen">
         <SiteList />
-        <IconList />
       </div>
       <div>
         <ProjectPage />
+        <IconList />
       </div>
     </>
   );
