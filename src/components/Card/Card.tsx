@@ -1,35 +1,44 @@
 import React from 'react';
-import CardImage from './CardImage';
-import CardContent from './CardContent';
-import CardButtons from './CardButtons';
-import CardStyles from '../../styles/CardStyles';
 
-type CardProps = {
-  title: string;
-  category: string;
+interface CardItemProps {
   image: string;
-  githubLink: string;
-  isSelected: boolean;
-  onClick: () => void;
-  isMobile: boolean;
-  openModal: () => void;
+  date: string;
+  title: string;
+  category: '팀프로젝트' | '싱글';
+  github: string;
+  notion: string;
+  languages: string[];
+}
+
+const CardItem: React.FC<CardItemProps> = ({ image, date, title, category, github, notion, languages }) => {
+  return (
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <p className="text-sm text-gray-500">{date}</p>
+        <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+        <p className={`mt-2 text-sm ${category === '팀프로젝트' ? 'text-blue-500' : 'text-green-500'}`}>{category}</p>
+        <div className="mt-4">
+          <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline mr-4">
+            GitHub
+          </a>
+          <a href={notion} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+            Notion
+          </a>
+        </div>
+        <div className="mt-4">
+          <p className="text-sm font-semibold">사용 언어:</p>
+          <ul className="list-disc list-inside">
+            {languages.map((language, index) => (
+              <li key={index} className="text-gray-700">
+                {language}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-const Card: React.FC<CardProps> = ({
-  title,
-  category,
-  image,
-  githubLink,
-  isSelected,
-  onClick,
-  isMobile,
-  openModal,
-}) => (
-  <div onClick={onClick} className={CardStyles.container(isSelected, isMobile)}>
-    <CardImage image={image} title={title} isSelected={isSelected} isMobile={isMobile} />
-    <CardContent title={title} category={category} isSelected={isSelected} isMobile={isMobile} />
-    <CardButtons githubLink={githubLink} isSelected={isSelected} isMobile={isMobile} openModal={openModal} />
-  </div>
-);
-
-export default Card;
+export default CardItem;
