@@ -9,10 +9,10 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md lg:p-4 p-2 fixed top-0 left-0 w-full z-50">
-      <div className="relative flex items-center text-sm">
-        <div className="absolute left-0 text-gray-900 lg:pl-4">My Portfolio</div>
-        <ul className="flex justify-center w-full xl:space-x-28 lg:space-x-16 md:text-gray-900 text-white">
+    <nav className="bg-white shadow-sm lg:p-4 p-2 fixed top-0 left-0 w-full z-50">
+      <div className="flex justify-between items-center text-sm">
+        <div className="md:absolute md:left-0 text-gray-900 lg:pl-4">My Portfolio</div>
+        <ul className="hidden md:flex justify-center w-full xl:space-x-32 lg:space-x-16 text-gray-900">
           <NavItem label="Home" href="/" />
           <NavItem label="Resume" href="/resume" />
           <NavItem label="Portfolio" href="/portfolio" />
@@ -23,7 +23,7 @@ const NavBar: React.FC = () => {
             newTab={true}
           />
         </ul>
-        <div className="md:hidden absolute right-0">
+        <div className="md:hidden">
           <button onClick={toggleMobileMenu} className="text-gray-900 focus:outline-none" aria-label="메뉴 열기">
             <svg
               className="w-8 h-8"
