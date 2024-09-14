@@ -10,12 +10,9 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className="bg-white shadow-md lg:p-4 p-2 fixed top-0 left-0 w-full z-50">
-      <div className="flex justify-between items-center text-sm">
-        {/* 로고 또는 사이트 이름 */}
-        <div className="text-gray-900">My Portfolio</div>
-
-        {/* 데스크탑 메뉴 */}
-        <ul className="hidden lg:flex lg:space-x-20 justify-center text-gray-900">
+      <div className="relative flex items-center text-sm">
+        <div className="absolute left-0 text-gray-900 lg:pl-4">My Portfolio</div>
+        <ul className="flex justify-center w-full xl:space-x-28 lg:space-x-16 md:text-gray-900 text-white">
           <NavItem label="Home" href="/" />
           <NavItem label="Resume" href="/resume" />
           <NavItem label="Portfolio" href="/portfolio" />
@@ -26,9 +23,7 @@ const NavBar: React.FC = () => {
             newTab={true}
           />
         </ul>
-
-        {/* 모바일 메뉴 아이콘 */}
-        <div className="md:hidden">
+        <div className="md:hidden absolute right-0">
           <button onClick={toggleMobileMenu} className="text-gray-900 focus:outline-none" aria-label="메뉴 열기">
             <svg
               className="w-8 h-8"
@@ -42,8 +37,6 @@ const NavBar: React.FC = () => {
           </button>
         </div>
       </div>
-
-      {/* 모바일 메뉴 (열릴 때만 표시) */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white text-gray-900 mt-4 p-4 text-sm">
           <ul className="space-y-4">
