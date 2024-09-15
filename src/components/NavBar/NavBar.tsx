@@ -10,9 +10,9 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className="bg-white shadow-sm lg:p-4 p-2 fixed top-0 left-0 w-full z-50">
-      <div className="flex justify-between items-center text-sm">
+      <div className="flex justify-between items-center">
         <div className="md:absolute md:left-0 text-gray-900 lg:pl-4">My Portfolio</div>
-        <ul className="hidden md:flex justify-center w-full xl:space-x-32 lg:space-x-16 text-gray-900">
+        <ul className="hidden md:flex justify-center w-full xl:space-x-64 lg:space-x-16 text-gray-900 lg:font-semibold">
           <NavItem label="Home" href="/" />
           <NavItem label="Resume" href="/resume" />
           <NavItem label="Portfolio" href="/portfolio" />
