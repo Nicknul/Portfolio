@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Logo: React.FC = () => {
-  return <div className="md:absolute md:left-0 text-gray-900 lg:pl-4">My Portfolio</div>;
+  return (
+    <Link to="/" className="md:absolute md:left-0 text-gray-900 lg:pl-4 text-3xl">
+      👩🏻‍💻
+    </Link>
+  );
 };
 
 export default Logo;
