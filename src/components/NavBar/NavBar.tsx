@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import NavItem from './NavItem';
+import Logo from './Logo';
+import MobileMenu from './MobileMenu';
 
 const NavBar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,7 +13,7 @@ const NavBar: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm lg:p-4 p-2 fixed top-0 left-0 w-full z-50">
       <div className="flex justify-between items-center">
-        <div className="md:absolute md:left-0 text-gray-900 lg:pl-4">My Portfolio</div>
+        <Logo />
         <ul className="hidden md:flex justify-center w-full xl:space-x-64 lg:space-x-16 text-gray-900 lg:font-semibold">
           <NavItem label="Home" href="/" />
           <NavItem label="Resume" href="/resume" />
@@ -37,21 +39,7 @@ const NavBar: React.FC = () => {
           </button>
         </div>
       </div>
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white text-gray-900 mt-4 p-4 text-sm">
-          <ul className="space-y-4">
-            <NavItem label="Home" href="/" />
-            <NavItem label="Resume" href="/resume" />
-            <NavItem label="Portfolio" href="/portfolio" />
-            <NavItem label="GitHub" href="https://github.com/Nicknul" newTab={true} />
-            <NavItem
-              label="Notion"
-              href="https://stupendous-lighter-a2b.notion.site/3285a71a0daf4475b8dabd1ca260604d?v=fc4dafec8dc8454098541b1f489dd710&pvs=4"
-              newTab={true}
-            />
-          </ul>
-        </div>
-      )}
+      <MobileMenu isOpen={isMobileMenuOpen} />
     </nav>
   );
 };
