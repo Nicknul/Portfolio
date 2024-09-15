@@ -9,10 +9,11 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({ label, to, href, newTab = false }) => {
-  const baseClasses = 'relative hover:text-green-600 focus:text-green-600 transition duration-500';
+  const baseClasses =
+    'relative flex flex-col items-center hover:text-green-600 focus:text-green-600 transition duration-100';
 
   const underlineClasses =
-    'after:absolute after:left-0 after:bottom-[-20px] after:w-full after:h-[2px] after:bg-green-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500';
+    'after:absolute after:left-1/2 after:bottom-[-18px] after:w-[60px] after:h-[2px] after:bg-green-600 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-500 after:transform after:-translate-x-1/2';
 
   if (href) {
     return (
