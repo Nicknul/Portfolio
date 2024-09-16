@@ -50,7 +50,7 @@ const ResumeContent: React.FC = () => {
 
       {/* 자기 소개 섹션 */}
       <section>
-        <h2 className="text-2xl font-bold mb-4">ABOUT ME | Introduce</h2>
+        <h2 className="text-2xl font-bold mb-4">ABOUT ME | INTRODUCE</h2>
         <p>여기에 자기 소개 내용을 추가하세요.</p>
       </section>
       <hr className="border-gray-300 my-8" />
@@ -58,7 +58,31 @@ const ResumeContent: React.FC = () => {
       {/* 교육 섹션 */}
       <section>
         <h2 className="text-2xl font-bold mb-4">EDUCATION</h2>
-        <p>여기에 학력 정보를 추가하세요.</p>
+        <div className="space-y-6">
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-lg font-semibold">유성생명과학고등학교</h3>
+              <p className="text-sm">고등학교</p>
+            </div>
+            <div className="text-gray-600">2014.03 - 2017.02</div>
+          </div>
+
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-lg font-semibold">한국영상대학교</h3>
+              <p className="text-sm">광고영상디자인과 (중퇴)</p>
+            </div>
+            <div className="text-gray-600">2018.03 - 2021.02</div>
+          </div>
+
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-lg font-semibold">그린컴퓨터아트학원</h3>
+              <p className="text-sm">KDT 지역인재 양성을 위한 IaaS기반 웹 서비스 개발자 과정 4기</p>
+            </div>
+            <div className="text-gray-600">2024.03 - 현재</div>
+          </div>
+        </div>
       </section>
       <hr className="border-gray-300 my-8" />
 
