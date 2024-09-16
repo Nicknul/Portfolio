@@ -7,7 +7,7 @@ const PortfolioPage: React.FC = () => {
 
   return (
     <div className="pt-16 min-h-[calc(100vh-4rem)]">
-      <div className="w-full lg:max-w-[40%] mx-auto">
+      <div className="w-full xl:max-w-[40%] lg:max-w-[70%] mx-auto">
         <Toggle selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
         <CardList category={selectedCategory} />
       </div>
