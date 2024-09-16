@@ -3,31 +3,37 @@ import React from 'react';
 const ResumeContent: React.FC = () => {
   return (
     <>
-      {/* 프로필 섹션 */}
-      <section className="text-center lg:flex items-center">
-        <h1 className="text-3xl font-bold">정호연 | Nicknul</h1>
-        <img src="/imgs/Profile/emoji.jpeg" alt="Profile" className="w-32 rounded-full mx-auto mb-4" />
-      </section>
+      {/* 프로필 및 CONTACT 섹션 */}
+      <section className="lg:flex lg:justify-between lg:items-center text-left">
+        <div>
+          <h1 className="text-2xl font-bold">정호연 | Nicknul</h1>
+          <img
+            src="/imgs/Profile/emoji.jpeg"
+            alt="Profile"
+            className="lg:w-40 w-80 rounded-full mx-auto lg:mx-0 mb-4"
+          />
+        </div>
 
-      {/* CONTACT 섹션 */}
-      <section>
-        <h2 className="text-2xl font-bold mb-4">CONTACT</h2>
-        <p>Email : jea7730@gmail.com</p>
-        <p>
-          GitHub :
-          <a href="https://github.com/Nicknul" className="text-blue-500">
-            github.com/Nicknul
-          </a>
-        </p>
-        <p>
-          Notion :
-          <a
-            href="https://stupendous-lighter-a2b.notion.site/3285a71a0daf4475b8dabd1ca260604d?v=fc4dafec8dc8454098541b1f489dd710&pvs=4"
-            className="text-blue-500"
-          >
-            notion.so/정호연의 기록
-          </a>
-        </p>
+        {/* CONTACT 섹션 */}
+        <div className="lg:ml-8">
+          <h2 className="text-2xl font-bold mb-4">CONTACT</h2>
+          <p>Email: jea7730@gmail.com</p>
+          <p>
+            GitHub:
+            <a href="https://github.com/Nicknul" className="text-blue-500">
+              github.com/Nicknul
+            </a>
+          </p>
+          <p>
+            Notion:
+            <a
+              href="https://stupendous-lighter-a2b.notion.site/3285a71a0daf4475b8dabd1ca260604d?v=fc4dafec8dc8454098541b1f489dd710&pvs=4"
+              className="text-blue-500"
+            >
+              notion.so/정호연의 기록
+            </a>
+          </p>
+        </div>
       </section>
 
       {/* 자기 소개 섹션 */}
