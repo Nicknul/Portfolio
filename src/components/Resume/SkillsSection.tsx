@@ -3,7 +3,7 @@ import React from 'react';
 const SkillsSection: React.FC = () => (
   <section>
     <h2 className="text-2xl font-bold mb-4">TOOLS</h2>
-    <div className="grid grid-cols-2 gap-8">
+    <div className="md:grid md:grid-cols-2 gap-8">
       <div>
         <h3 className="text-lg font-semibold">Frontend</h3>
       </div>
