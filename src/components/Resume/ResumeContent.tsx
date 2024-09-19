@@ -89,7 +89,61 @@ const ResumeContent: React.FC = () => {
       {/* 스킬 섹션 */}
       <section>
         <h2 className="text-2xl font-bold mb-4">TOOLS</h2>
-        <p>여기에 사용할 수 있는 개발 언어 목록을 추가하세요.</p>
+        <div className="grid grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-lg font-semibold">Frontend</h3>
+          </div>
+          <div>
+            <ul className="list-disc list-inside">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Javascript</li>
+              <li>Typescript</li>
+              <li>React</li>
+              <li>Webpack</li>
+              <li>babel</li>
+              <li>Next.js</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+          <hr className="col-span-2 border-gray-300 my-4" />
+
+          <div>
+            <h3 className="text-lg font-semibold">Backend</h3>
+          </div>
+          <div>
+            <ul className="list-disc list-inside">
+              <li>Node.js</li>
+              <li>Python</li>
+              <li>RestAPI</li>
+              <li>NestJS</li>
+              <li>FastAPI</li>
+              <li>SQLite</li>
+            </ul>
+          </div>
+          <hr className="col-span-2 border-gray-300 my-4" />
+
+          <div>
+            <h3 className="text-lg font-semibold">Communication</h3>
+          </div>
+          <div>
+            <ul className="list-disc list-inside">
+              <li>GitHub</li>
+              <li>Notion</li>
+              <li>Slack</li>
+            </ul>
+          </div>
+          <hr className="col-span-2 border-gray-300 my-4" />
+
+          <div>
+            <h3 className="text-lg font-semibold">Design</h3>
+          </div>
+          <div>
+            <ul className="list-disc list-inside">
+              <li>Figma</li>
+            </ul>
+          </div>
+        </div>
       </section>
       <hr className="border-gray-300 my-8" />
 
