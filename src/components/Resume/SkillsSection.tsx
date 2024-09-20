@@ -7,7 +7,7 @@ const SkillsSection: React.FC = () => (
       <div>
         <h3 className="text-lg font-semibold">Frontend</h3>
       </div>
-      <div>
+      <div className="text-sm">
         <ul className="list-disc list-inside">
           <li>HTML</li>
           <li>CSS</li>
