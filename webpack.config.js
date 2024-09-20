@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -30,7 +31,12 @@ module.exports = {
     }),
   ],
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [{ from: /^\/portfolio\/.*$/, to: '/index.html' }],
+    },
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
     static: {
       directory: path.join(__dirname, 'public'),
     },
