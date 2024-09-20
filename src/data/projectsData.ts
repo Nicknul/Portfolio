@@ -80,6 +80,22 @@ export const projects = [
     tasks: ['로그인 화면 레이아웃 배치, CSS', '상점 메인 페이지 레이아웃 배치, CSS'],
   },
   {
+    title: '오늘의 점심 메뉴는?',
+    type: '개인 프로젝트',
+    period: '2024.06.26 - 2024.06.27',
+    description:
+      '랜덤 코드가 어떤 방식으로 작동되는지에 대해서 연구를 하였고, 랜덤을 돌릴 데이터 소스가 필요하여 학원 근처에 있는 식당 리스트를 입력해 도시락을 싸오지 않는 날에는 랜덤으로 돌려 식사를 하곤 했습니다.',
+    githubLink: 'https://github.com/Nicknul/today-lunch',
+    notionLink: 'https://kongukjae.notion.site/985eac9dd8354acba32b49eba305587f?pvs=4',
+    tools: 'HTML, CSS, Javascript',
+    teamSize: '1명',
+    tasks: [
+      'MDN에 있는 랜덤 코드를 참고하여 하나씩 뜯어보는 연구를 진행',
+      '학원 근처의 식당 리스트를 배열로 정리',
+      '버튼을 생성하고 버튼을 누르면 식당 이름이 나타나도록 함',
+    ],
+  },
+  {
     title: '포켓몬 타입',
     type: '개인 프로젝트',
     period: '2024.05.19 - 2024.05.26',
@@ -95,22 +111,6 @@ export const projects = [
       '포켓몬 공식홈페이지에 있는 이미지 주소를 가져오고 반복문으로 전체 이미지를 브라우저에 나타나게 함',
       '브라우저에 접속하면 전체 포켓몬이 나타나게 함',
       '상단 탭에 있는 타입을 누르면 해당 타입 포켓몬이 나타나게 함',
-    ],
-  },
-  {
-    title: '오늘의 점심 메뉴는?',
-    type: '개인 프로젝트',
-    period: '2024.06.26 - 2024.06.27',
-    description:
-      '랜덤 코드가 어떤 방식으로 작동되는지에 대해서 연구를 하였고, 랜덤을 돌릴 데이터 소스가 필요하여 학원 근처에 있는 식당 리스트를 입력해 도시락을 싸오지 않는 날에는 랜덤으로 돌려 식사를 하곤 했습니다.',
-    githubLink: 'https://github.com/Nicknul/today-lunch',
-    notionLink: 'https://kongukjae.notion.site/985eac9dd8354acba32b49eba305587f?pvs=4',
-    tools: 'HTML, CSS, Javascript',
-    teamSize: '1명',
-    tasks: [
-      'MDN에 있는 랜덤 코드를 참고하여 하나씩 뜯어보는 연구를 진행',
-      '학원 근처의 식당 리스트를 배열로 정리',
-      '버튼을 생성하고 버튼을 누르면 식당 이름이 나타나도록 함',
     ],
   },
 ];
