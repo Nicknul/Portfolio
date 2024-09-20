@@ -1,20 +1,23 @@
-// src/pages/Portfolio/ProjectTemplate.tsx
-
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../../data/CardData';
-import { projectImages } from '../../data/ProjectImages'; // 이미지 데이터 불러오기
+import { projectImages } from '../../data/ProjectImages';
 
 const ProjectTemplate: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = cardData.find((project) => project.title.toLowerCase().replace(/\s+/g, '-') === id);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   if (!project) {
     return <div>프로젝트를 찾을 수 없습니다.</div>;
   }
 
-  // 프로젝트에 맞는 이미지 배열 가져오기
   const galleryImages = projectImages[id as keyof typeof projectImages] || [];
+  const handleImageClick = (index: number) => {
+    if (window.innerWidth < 1024) {
+      setSelectedImage(index);
+    }
+  };
 
   return (
     <div className="container mx-auto p-6 pt-20 xl:max-w-[40%] md:max-w-[60%]">
@@ -52,7 +55,12 @@ const ProjectTemplate: React.FC = () => {
               key={index}
               src={src}
               alt={`Gallery image ${index + 1}`}
-              className="w-full object-cover rounded shadow"
+              onClick={() => handleImageClick(index)}
+              className={`w-full object-cover rounded shadow transform transition duration-300 
+                ${selectedImage === index ? 'brightness-75' : ''}
+                hover:brightness-75 hover:translate-y-[-5px] 
+                lg:hover:brightness-75 lg:hover:translate-y-[-5px]
+                sm:hover:brightness-75 sm:hover:translate-y-[-5px]`}
             />
           ))}
         </div>
