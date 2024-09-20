@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar/NavBar';
 import HomePage from './Home';
 import ResumePage from './Resume';
 import PortfolioPage from './Portfolio';
+import ProjectTemplate from './Portfolio/ProjectTemplate';
 
 const MainPage: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const MainPage: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/resume" element={<ResumePage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/:id" element={<ProjectTemplate />} />
       </Routes>
     </Router>
   );
