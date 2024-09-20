@@ -1,4 +1,3 @@
-// src/data/careerData.ts
 export const careers = [
   {
     period: '2023.04 ~ 2024.01',
