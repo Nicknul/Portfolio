@@ -10,7 +10,7 @@ const CardList: React.FC<CardListProps> = ({ category }) => {
   const filteredCards = category === '전체' ? cardData : cardData.filter((card) => card.category === category);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 mb-4">
       {filteredCards.map((card, index) => (
         <CardItem
           key={index}
