@@ -32,8 +32,10 @@ const ProjectTemplate: React.FC = () => {
   const galleryImages = projectImages[id as keyof typeof projectImages] || [];
 
   const handleImageClick = (index: number) => {
-    if (window.innerWidth < 1024) {
-      setIsButtonVisible(index); // 모바일과 태블릿에서는 클릭 시 버튼을 표시
+    // 모바일 및 태블릿(1024px 이하)에서 이미지를 클릭할 때만 버튼을 표시
+    if (window.innerWidth < 1280) {
+      setIsButtonVisible(index);
+      setSelectedImage(index); // 이미지 어두워지도록 설정
     }
   };
 
@@ -45,6 +47,7 @@ const ProjectTemplate: React.FC = () => {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedImage(null); // 모달을 닫을 때 선택된 이미지 상태 초기화
+    setIsButtonVisible(null); // 버튼 상태도 초기화
   };
 
   return (
@@ -81,19 +84,19 @@ const ProjectTemplate: React.FC = () => {
           {galleryImages.map((src, index) => (
             <div
               key={index}
-              className={`relative group ${window.innerWidth >= 1024 ? 'hover:brightness-75' : ''}`} // 브라우저에서 호버 시 어두워지도록 설정
+              className={`relative group ${window.innerWidth >= 1280 ? 'hover:brightness-75' : ''}`} // 브라우저에서 호버 시 어두워지도록 설정
             >
               <img
                 src={src}
                 alt={`Gallery image ${index + 1}`}
                 onClick={() => handleImageClick(index)}
                 className={`w-full object-cover rounded shadow transform transition duration-300 
-                  ${selectedImage === index && isModalOpen ? 'brightness-50' : ''}
-                  ${window.innerWidth >= 1024 ? 'hover:brightness-50 hover:translate-y-[-5px]' : ''}
+                  ${selectedImage === index ? 'brightness-50' : ''}
+                  ${window.innerWidth >= 1280 ? 'hover:brightness-50 hover:translate-y-[-5px]' : ''}
                 `}
               />
               {/* 태블릿과 모바일에서는 클릭 시 버튼을 나타나게 */}
-              {isButtonVisible === index || window.innerWidth >= 1024 ? (
+              {isButtonVisible === index || window.innerWidth >= 1280 ? (
                 <button
                   onClick={() => openModal(index)}
                   className="absolute inset-0 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300"
