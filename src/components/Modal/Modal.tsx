@@ -1,40 +1,32 @@
 import React, { useEffect } from 'react';
-import ModalStyles from '../../styles/ModalStyles';
 
-type ModalProps = {
-  isOpen: boolean;
+interface ModalProps {
+  src: string;
   onClose: () => void;
-  children: React.ReactNode;
-  imageUrl: string;
-};
+}
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, imageUrl }) => {
+const Modal: React.FC<ModalProps> = ({ src, onClose }) => {
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
+  }, [onClose]);
 
   return (
-    <div className={ModalStyles.modalOverlay}>
-      <div className={ModalStyles.modalContainer}>
-        <button onClick={onClose} className={ModalStyles.closeButton}>
-          닫기
-        </button>
-        <div className={ModalStyles.modalContent}>
-          <div className={ModalStyles.imageContainer}>
-            <img src={imageUrl} alt="Modal 이미지" className={ModalStyles.modalImage} />
-          </div>
-          <div className={ModalStyles.modalBody}>{children}</div>
-        </div>
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+      <button onClick={onClose} className="absolute top-4 right-4 text-white">
+        ✕
+      </button>
+      <div className="relative">
+        <img src={src} alt="Selected" className="max-w-full max-h-screen rounded" />
       </div>
     </div>
   );
