@@ -1,22 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../../data/CardData';
 import { projectImages } from '../../data/ProjectImages';
 
 // 모달 컴포넌트 추가
-const Modal: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose }) => (
-  <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-    <div className="relative">
-      <img src={src} alt="Selected" className="max-w-full max-h-screen rounded" />
-      <button
-        onClick={onClose}
-        className="absolute top-2 right-2 bg-white text-black rounded-full p-1 hover:bg-gray-200"
-      >
-        닫기
+const Modal: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose }) => {
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+      {/* 모달 바깥에 닫기 버튼 추가 */}
+      <button onClick={onClose} className="absolute top-4 right-4 text-white text-2xl">
+        X
       </button>
+      <div className="relative">
+        <img src={src} alt="Selected" className="max-w-full max-h-screen rounded" />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ProjectTemplate: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,7 +46,6 @@ const ProjectTemplate: React.FC = () => {
   const galleryImages = projectImages[id as keyof typeof projectImages] || [];
 
   const handleImageClick = (index: number) => {
-    // 모바일 및 태블릿(1024px 이하)에서 이미지를 클릭할 때만 버튼을 표시
     if (window.innerWidth < 1280) {
       setIsButtonVisible(index);
       setSelectedImage(index); // 이미지 어두워지도록 설정
@@ -99,7 +112,7 @@ const ProjectTemplate: React.FC = () => {
               {isButtonVisible === index || window.innerWidth >= 1280 ? (
                 <button
                   onClick={() => openModal(index)}
-                  className="absolute inset-0 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300"
+                  className="absolute inset-0 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 rounded"
                 >
                   자세히 보기
                 </button>
