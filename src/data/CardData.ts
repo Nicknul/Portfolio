@@ -18,7 +18,7 @@ export const cardData = [
     languages: ['Typescript', 'React', 'Next.js', 'NestJS', 'Python', 'FastAPI', 'MySQL'],
   },
   {
-    image: 'https://via.placeholder.com/400',
+    image: '/imgs/ERP/ERP_main.png',
     date: '2024.07.15 - 2024.08.14',
     title: 'ERP',
     category: '팀프로젝트' as '팀프로젝트',
