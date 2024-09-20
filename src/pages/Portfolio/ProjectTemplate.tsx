@@ -1,43 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../../data/CardData';
 import { projectImages } from '../../data/ProjectImages';
-
-// 모달 컴포넌트 추가
-const Modal: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose }) => {
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose]);
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-      {/* 모달 바깥에 닫기 버튼 추가 */}
-      <button onClick={onClose} className="absolute top-4 right-4 text-white text-2xl">
-        X
-      </button>
-      <div className="relative">
-        <img src={src} alt="Selected" className="max-w-full max-h-screen rounded" />
-      </div>
-    </div>
-  );
-};
+import Modal from '../../components/Modal/Modal';
+import GalleryItem from '../../components/Gallery/GalleryItem';
 
 const ProjectTemplate: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = cardData.find((project) => project.title.toLowerCase().replace(/\s+/g, '-') === id);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // 모달 상태 추가
-  const [isButtonVisible, setIsButtonVisible] = useState<number | null>(null); // 버튼 표시 상태 추가
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isButtonVisible, setIsButtonVisible] = useState<number | null>(null);
 
   if (!project) {
     return <div>프로젝트를 찾을 수 없습니다.</div>;
@@ -48,7 +21,7 @@ const ProjectTemplate: React.FC = () => {
   const handleImageClick = (index: number) => {
     if (window.innerWidth < 1280) {
       setIsButtonVisible(index);
-      setSelectedImage(index); // 이미지 어두워지도록 설정
+      setSelectedImage(index);
     }
   };
 
@@ -59,8 +32,8 @@ const ProjectTemplate: React.FC = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null); // 모달을 닫을 때 선택된 이미지 상태 초기화
-    setIsButtonVisible(null); // 버튼 상태도 초기화
+    setSelectedImage(null);
+    setIsButtonVisible(null);
   };
 
   return (
@@ -95,34 +68,19 @@ const ProjectTemplate: React.FC = () => {
         <h2 className="text-xl font-semibold mb-4">작업 이미지 갤러리</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {galleryImages.map((src, index) => (
-            <div
+            <GalleryItem
               key={index}
-              className={`relative group ${window.innerWidth >= 1280 ? 'hover:brightness-75' : ''}`} // 브라우저에서 호버 시 어두워지도록 설정
-            >
-              <img
-                src={src}
-                alt={`Gallery image ${index + 1}`}
-                onClick={() => handleImageClick(index)}
-                className={`w-full object-cover rounded shadow transform transition duration-300 
-                  ${selectedImage === index ? 'brightness-50' : ''}
-                  ${window.innerWidth >= 1280 ? 'hover:brightness-50 hover:translate-y-[-5px]' : ''}
-                `}
-              />
-              {/* 태블릿과 모바일에서는 클릭 시 버튼을 나타나게 */}
-              {isButtonVisible === index || window.innerWidth >= 1280 ? (
-                <button
-                  onClick={() => openModal(index)}
-                  className="absolute inset-0 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 rounded"
-                >
-                  자세히 보기
-                </button>
-              ) : null}
-            </div>
+              src={src}
+              index={index}
+              selectedImage={selectedImage}
+              isButtonVisible={isButtonVisible}
+              onClick={handleImageClick}
+              onOpenModal={openModal}
+            />
           ))}
         </div>
       </div>
 
-      {/* 모달 렌더링 */}
       {isModalOpen && selectedImage !== null && <Modal src={galleryImages[selectedImage]} onClose={closeModal} />}
     </div>
   );
