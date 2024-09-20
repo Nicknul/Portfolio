@@ -1,6 +1,9 @@
+// src/pages/Portfolio/ProjectTemplate.tsx
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../../data/CardData';
+import { projectImages } from '../../data/ProjectImages'; // 이미지 데이터 불러오기
 
 const ProjectTemplate: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -10,12 +13,14 @@ const ProjectTemplate: React.FC = () => {
     return <div>프로젝트를 찾을 수 없습니다.</div>;
   }
 
+  // 프로젝트에 맞는 이미지 배열 가져오기
+  const galleryImages = projectImages[id as keyof typeof projectImages] || [];
+
   return (
-    <div className="container mx-auto p-6 pt-20">
+    <div className="container mx-auto p-6 pt-20 xl:max-w-[40%] md:max-w-[60%]">
       <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-      <img src={project.image} alt={project.title} className="w-full h-64 object-cover rounded mb-4" />
+      <img src={project.image} alt={project.title} className="w-full object-cover rounded mb-4" />
       <p className="text-gray-600 mb-2">프로젝트 기간: {project.date}</p>
-      <p className="text-gray-600 mb-2">카테고리: {project.category}</p>
       <div className="mt-4">
         <a
           href={project.github}
@@ -36,6 +41,19 @@ const ProjectTemplate: React.FC = () => {
             <span key={index} className="px-2 py-1 text-xs bg-pink-200 rounded-full">
               {language}
             </span>
+          ))}
+        </div>
+      </div>
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-4">작업 이미지 갤러리</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {galleryImages.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`Gallery image ${index + 1}`}
+              className="w-full object-cover rounded shadow"
+            />
           ))}
         </div>
       </div>
