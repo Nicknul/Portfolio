@@ -3,10 +3,27 @@ import { useParams } from 'react-router-dom';
 import { cardData } from '../../data/CardData';
 import { projectImages } from '../../data/ProjectImages';
 
+// 모달 컴포넌트 추가
+const Modal: React.FC<{ src: string; onClose: () => void }> = ({ src, onClose }) => (
+  <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    <div className="relative">
+      <img src={src} alt="Selected" className="max-w-full max-h-screen rounded" />
+      <button
+        onClick={onClose}
+        className="absolute top-2 right-2 bg-white text-black rounded-full p-1 hover:bg-gray-200"
+      >
+        닫기
+      </button>
+    </div>
+  </div>
+);
+
 const ProjectTemplate: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = cardData.find((project) => project.title.toLowerCase().replace(/\s+/g, '-') === id);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // 모달 상태 추가
+  const [isButtonVisible, setIsButtonVisible] = useState<number | null>(null); // 버튼 표시 상태 추가
 
   if (!project) {
     return <div>프로젝트를 찾을 수 없습니다.</div>;
@@ -16,8 +33,17 @@ const ProjectTemplate: React.FC = () => {
 
   const handleImageClick = (index: number) => {
     if (window.innerWidth < 1024) {
-      setSelectedImage(index);
+      setIsButtonVisible(index); // 모바일과 태블릿에서는 클릭 시 버튼을 표시
     }
+  };
+
+  const openModal = (index: number) => {
+    setSelectedImage(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -52,20 +78,35 @@ const ProjectTemplate: React.FC = () => {
         <h2 className="text-xl font-semibold mb-4">작업 이미지 갤러리</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {galleryImages.map((src, index) => (
-            <img
+            <div
               key={index}
-              src={src}
-              alt={`Gallery image ${index + 1}`}
-              onClick={() => handleImageClick(index)}
-              className={`w-full object-cover rounded shadow transform transition duration-300 
-                ${selectedImage === index ? 'brightness-50' : ''}
-                hover:brightness-50 hover:translate-y-[-5px]
-                lg:hover:brightness-50 lg:hover:translate-y-[-5px]
-                sm:hover:brightness-50 sm:hover:translate-y-[-5px]`}
-            />
+              className={`relative group ${window.innerWidth >= 1024 ? 'hover:brightness-75' : ''}`} // 브라우저에서 호버 시 어두워지도록 설정
+            >
+              <img
+                src={src}
+                alt={`Gallery image ${index + 1}`}
+                onClick={() => handleImageClick(index)}
+                className={`w-full object-cover rounded shadow transform transition duration-300 
+                  ${selectedImage === index ? 'brightness-50' : ''}
+                  ${window.innerWidth >= 1024 ? 'hover:brightness-50 hover:translate-y-[-5px]' : ''}
+                `}
+              />
+              {/* 태블릿과 모바일에서는 클릭 시 버튼을 나타나게 */}
+              {isButtonVisible === index || window.innerWidth >= 1024 ? (
+                <button
+                  onClick={() => openModal(index)}
+                  className="absolute inset-0 bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300"
+                >
+                  자세히 보기
+                </button>
+              ) : null}
+            </div>
           ))}
         </div>
       </div>
+
+      {/* 모달 렌더링 */}
+      {isModalOpen && selectedImage !== null && <Modal src={galleryImages[selectedImage]} onClose={closeModal} />}
     </div>
   );
 };
