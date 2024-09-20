@@ -13,6 +13,7 @@ const ProjectTemplate: React.FC = () => {
   }
 
   const galleryImages = projectImages[id as keyof typeof projectImages] || [];
+
   const handleImageClick = (index: number) => {
     if (window.innerWidth < 1024) {
       setSelectedImage(index);
@@ -22,7 +23,7 @@ const ProjectTemplate: React.FC = () => {
   return (
     <div className="container mx-auto p-6 pt-20 xl:max-w-[40%] md:max-w-[60%]">
       <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-      <img src={project.image} alt={project.title} className="w-full object-cover rounded mb-4" />
+      <img src={project.image} alt={project.title} className="w-full h-48 object-cover object-top rounded mb-4" />
       <p className="text-gray-600 mb-2">프로젝트 기간: {project.date}</p>
       <div className="mt-4">
         <a
@@ -57,10 +58,10 @@ const ProjectTemplate: React.FC = () => {
               alt={`Gallery image ${index + 1}`}
               onClick={() => handleImageClick(index)}
               className={`w-full object-cover rounded shadow transform transition duration-300 
-                ${selectedImage === index ? 'brightness-75' : ''}
-                hover:brightness-75 hover:translate-y-[-5px] 
-                lg:hover:brightness-75 lg:hover:translate-y-[-5px]
-                sm:hover:brightness-75 sm:hover:translate-y-[-5px]`}
+                ${selectedImage === index ? 'brightness-50' : ''}
+                hover:brightness-50 hover:translate-y-[-5px]
+                lg:hover:brightness-50 lg:hover:translate-y-[-5px]
+                sm:hover:brightness-50 sm:hover:translate-y-[-5px]`}
             />
           ))}
         </div>
