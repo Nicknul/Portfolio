@@ -44,6 +44,7 @@ const ProjectTemplate: React.FC = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setSelectedImage(null); // 모달을 닫을 때 선택된 이미지 상태 초기화
   };
 
   return (
@@ -87,7 +88,7 @@ const ProjectTemplate: React.FC = () => {
                 alt={`Gallery image ${index + 1}`}
                 onClick={() => handleImageClick(index)}
                 className={`w-full object-cover rounded shadow transform transition duration-300 
-                  ${selectedImage === index ? 'brightness-50' : ''}
+                  ${selectedImage === index && isModalOpen ? 'brightness-50' : ''}
                   ${window.innerWidth >= 1024 ? 'hover:brightness-50 hover:translate-y-[-5px]' : ''}
                 `}
               />
