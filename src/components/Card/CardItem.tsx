@@ -11,6 +11,15 @@ interface CardItemProps {
 }
 
 const CardItem: React.FC<CardItemProps> = ({ image, date, title, category, github, notion, languages }) => {
+  const colors = [
+    'bg-pink-200', // JavaScript
+    'bg-purple-200', // React
+    'bg-green-200', // Node.js
+    'bg-yellow-200', // Python
+    'bg-blue-200', // Django
+    'bg-indigo-200', // PostgreSQL
+  ];
+
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
@@ -27,14 +36,13 @@ const CardItem: React.FC<CardItemProps> = ({ image, date, title, category, githu
           </a>
         </div>
         <div className="mt-4">
-          <p className="text-sm font-semibold">사용 언어:</p>
-          <ul className="list-disc list-inside">
+          <div className="flex flex-wrap gap-2 mt-2">
             {languages.map((language, index) => (
-              <li key={index} className="text-gray-700">
+              <span key={index} className={`px-2 py-1 text-xs ${colors[index % colors.length]} rounded-full`}>
                 {language}
-              </li>
+              </span>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
