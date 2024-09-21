@@ -1,3 +1,4 @@
+// src/data/CardData.ts
 export const cardData = [
   {
     image: 'https://via.placeholder.com/400',
@@ -7,6 +8,16 @@ export const cardData = [
     github: 'https://github.com/Nicknul/Portfolio',
     notion: 'https://stupendous-lighter-a2b.notion.site/0fd750b7ba354c6a91149a23c47bdf77?pvs=4',
     languages: ['Typescript', 'React', 'Tailwind CSS', 'babel', 'webpack'],
+    completedTasks: [
+      '상단 탭 메뉴를 통해 사용자들이 직관적으로 원하는 페이지로 쉽게 이동할 수 있도록 구성했습니다.',
+      '반응형 디자인을 적극적으로 고려하여 다양한 화면 크기에서도 일관된 사용자 경험을 제공하도록 스타일 작업을 진행했습니다.',
+      '진행했던 프로젝트들을 한 눈에 볼 수 있도록 카드 컴포넌트를 제작하였으며, 이를 통해 프로젝트 관리와 시각적 표현을 강화했습니다.',
+    ],
+    ongoingTasks: [
+      '각 프로젝트 카드 클릭 시 해당 프로젝트의 상세 소개 페이지로 이동하도록 기능을 추가하고 있습니다.',
+      '사용자 편의를 위해 상단으로 빠르게 이동할 수 있는 버튼을 추가할 예정입니다.',
+      '홈과 프로젝트 탭의 컨텐츠를 더욱 풍부하게 채우기 위해 추가적인 작업을 진행 중입니다.',
+    ],
   },
   {
     image: 'https://via.placeholder.com/400',
@@ -16,6 +27,16 @@ export const cardData = [
     github: 'https://github.com/Nicknul/weather',
     notion: 'https://kongukjae.notion.site/60e350b2ab544d29bcc21cd710358afe?pvs=4',
     languages: ['Typescript', 'React', 'Next.js', 'NestJS', 'Python', 'FastAPI', 'MySQL'],
+    completedTasks: [
+      '기상청의 단기 예보와 중기 예보 API를 동적으로 조립하여 실시간 데이터를 사용자에게 제공하는 시스템을 구축했습니다.',
+      '기상청 API 데이터의 업데이트 시간을 파악하고, 사용자 시간과 동기화하여 최신 데이터를 제공할 수 있도록 구현했습니다.',
+      'Google Cloud의 Geocoding API를 활용하여 사용자의 현재 위치를 위도와 경도로 변환하여 정확한 날씨 정보를 제공할 수 있도록 하였습니다.',
+    ],
+    ongoingTasks: [
+      '날씨 및 미세먼지 데이터를 더욱 시각적으로 보기 좋게 개선하기 위해 메인 페이지의 레이아웃과 CSS 작업을 진행 중입니다.',
+      '사용자에게 위치 정보와 쿠키 허용을 요청하여 개인화된 날씨 정보를 제공하는 기능을 추가하고 있습니다.',
+      '사용자의 접속 정보를 쿠키를 통해 데이터베이스에 저장하여 재방문 시 사용자 경험을 향상시키는 작업을 진행 중입니다.',
+    ],
   },
   {
     image: '/imgs/ERP/ERP_main.png',
@@ -25,6 +46,16 @@ export const cardData = [
     github: 'https://github.com/KDT-IaaS-Class-Two-Group/KDT-IaaS-2-ProjectA-1team',
     notion: 'https://kongukjae.notion.site/ERP-abc3f61cb1ce4a52859ab0f5c4aedec4?pvs=4',
     languages: ['Typescript', 'React', 'Tailwind CSS', 'Next.js', 'NestJS', 'Python', 'FastAPI', 'SQLite'],
+    completedTasks: [
+      '데이터베이스 테이블을 생성할 수 있는 모달 기능을 구현하여 사용자의 작업 편의성을 높였습니다.',
+      '웹 브라우저에서 테이블의 열과 행을 자유롭게 추가하거나 삭제할 수 있는 기능을 구현하여 유연한 데이터 관리를 지원했습니다.',
+      '테이블 수정 작업 시 새로고침이나 페이지 전환으로 인한 데이터 손실을 방지하기 위해 확인 모달 창을 추가하여 사용자 경험을 개선했습니다.',
+      '사용자가 생성한 테이블 이름이 조회 페이지의 Select 요소에 실시간으로 반영되도록 하여 데이터 접근성을 높였습니다.',
+    ],
+    ongoingTasks: [
+      '조회되는 테이블의 데이터가 일정 크기를 초과할 경우 가로 및 세로 스크롤이 생성되도록 개선하고 있습니다.',
+      '전체 프로젝트의 코드 스타일을 일관성 있게 유지하기 위해 Tailwind CSS 리팩토링을 진행 중입니다.',
+    ],
   },
   {
     image: 'https://via.placeholder.com/400',
@@ -34,6 +65,15 @@ export const cardData = [
     github: 'https://github.com/KDT-IaaS-Class-Two-Group/subject-7-exam-database-1',
     notion: 'https://kongukjae.notion.site/subject-7-exam-database-1-0de39abb5a794fb694af1dd0120996b7?pvs=4',
     languages: ['HTML', 'CSS', 'Javascript', 'Node.js', 'SQLite'],
+    completedTasks: [
+      '로그인 화면의 레이아웃을 배치하고 CSS를 통해 시각적으로 깔끔하게 디자인하였습니다.',
+      '상점의 메인 페이지를 구성하여 사용자가 쉽게 상품을 확인하고 구매할 수 있도록 레이아웃을 설계하였습니다.',
+      '협업 도구로 GitHub, Slack, Notion을 적극 활용하여 원활한 팀 프로젝트 진행을 도왔습니다.',
+    ],
+    ongoingTasks: [
+      '상점의 상품 등록과 결제 기능을 추가하여 실제 상점과 같은 기능을 구현할 예정입니다.',
+      '재고 관리 시스템을 구축하여 상품의 재고를 실시간으로 관리할 수 있도록 개발 중입니다.',
+    ],
   },
   {
     image: 'https://via.placeholder.com/400',
@@ -43,6 +83,12 @@ export const cardData = [
     github: 'https://github.com/Nicknul/today-lunch',
     notion: 'https://kongukjae.notion.site/985eac9dd8354acba32b49eba305587f?pvs=4',
     languages: ['HTML', 'CSS', 'Javascript'],
+    completedTasks: [
+      'MDN에 있는 랜덤 코드를 참조하여 다양한 방식으로 작동하는 랜덤 코드에 대한 연구를 진행했습니다.',
+      '학원 근처의 식당 리스트를 배열로 정리하여 데이터 소스로 사용하였습니다.',
+      '사용자가 버튼을 클릭하면 랜덤으로 식당 이름이 나타나도록 기능을 구현하여 점심 메뉴 선택을 돕는 프로그램을 완성했습니다.',
+    ],
+    ongoingTasks: [],
   },
   {
     image: 'https://via.placeholder.com/400',
@@ -52,5 +98,11 @@ export const cardData = [
     github: 'https://github.com/Nicknul/Pokemon-Types',
     notion: 'https://kongukjae.notion.site/6ca172f9fec44889b90e0b1874b5cebc?pvs=4',
     languages: ['HTML', 'CSS', 'Javascript', 'REST API', 'Node.js'],
+    completedTasks: [
+      'npm에서 제공하는 포켓몬 이름 데이터를 JSON 형태로 가공한 패키지를 설치하여 데이터 활용 방안을 연구했습니다.',
+      'Poke API를 통해 포켓몬 데이터를 받아와 포켓몬 타입과 일치하는 정보를 제공하는 기능을 구현했습니다.',
+      '포켓몬 공식 홈페이지에서 이미지를 가져와 반복문을 통해 전체 포켓몬의 이미지를 브라우저에 나타나게 했습니다.',
+    ],
+    ongoingTasks: ['상단 탭에서 타입을 선택하면 해당 타입의 포켓몬만 필터링하여 표시되도록 기능을 추가할 예정입니다.'],
   },
 ];
