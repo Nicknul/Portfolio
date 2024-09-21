@@ -1,3 +1,4 @@
+// src/pages/Portfolio/ProjectTemplate.tsx
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { cardData } from '../../data/CardData';
@@ -38,10 +39,11 @@ const ProjectTemplate: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6 pt-20 xl:max-w-[40%] md:max-w-[60%]">
-      <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-      <img src={project.image} alt={project.title} className="w-full h-48 object-cover object-top rounded mb-4" />
-      <p className="text-gray-600 mb-2">프로젝트 기간: {project.date}</p>
-      <div className="mt-4">
+      <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
+      <p className="text-gray-600 mb-2 text-xs">{project.date}</p>
+      <img src={project.image} alt={project.title} className="w-full h-48 object-cover object-top rounded mb-2" />
+
+      <div className="text-sm">
         <a
           href={project.github}
           target="_blank"
@@ -54,8 +56,9 @@ const ProjectTemplate: React.FC = () => {
           Notion
         </a>
       </div>
+
       <div className="mt-6">
-        <h2 className="text-xl font-semibold mb-2">사용 언어 및 라이브러리</h2>
+        <h2 className="text-xl font-semibold mb-2">SKILL</h2>
         <div className="flex flex-wrap gap-2">
           {project.languages.map((language, index) => (
             <span key={index} className="px-2 py-1 text-xs bg-pink-200 rounded-full">
@@ -64,8 +67,25 @@ const ProjectTemplate: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* 주요 기능 섹션 */}
       <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">작업 이미지 갤러리</h2>
+        <h2 className="text-xl font-semibold mb-2">주요 기능</h2>
+        <ul className="list-disc list-inside text-gray-700 text-sm">
+          {project.ongoingTasks && project.ongoingTasks.map((task, index) => <li key={index}>{task}</li>)}
+        </ul>
+      </div>
+
+      {/* 담당 기능 섹션 */}
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-2">담당 기능</h2>
+        <ul className="list-disc list-inside text-gray-700 text-sm">
+          {project.completedTasks && project.completedTasks.map((task, index) => <li key={index}>{task}</li>)}
+        </ul>
+      </div>
+
+      <div className="mt-6">
+        <h2 className="text-xl font-semibold mb-4">GALLERY</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {galleryImages.map((src, index) => (
             <GalleryItem
@@ -80,7 +100,6 @@ const ProjectTemplate: React.FC = () => {
           ))}
         </div>
       </div>
-
       {isModalOpen && selectedImage !== null && <Modal src={galleryImages[selectedImage]} onClose={closeModal} />}
     </div>
   );
