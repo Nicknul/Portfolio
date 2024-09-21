@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
     <nav className="bg-white shadow-sm lg:p-4 p-2 fixed top-0 left-0 w-full z-50">
       <div className="flex justify-between items-center">
         <Logo />
-        <ul className="hidden md:flex justify-center w-full xl:space-x-64 lg:space-x-24 text-gray-900 lg:font-semibold">
+        <ul className="hidden md:flex justify-center w-full xl:space-x-48 lg:space-x-24 text-gray-900 lg:font-semibold">
           <NavItem label="Home" href="/" />
           <NavItem label="Resume" href="/resume" />
           <NavItem label="Portfolio" href="/portfolio" />
