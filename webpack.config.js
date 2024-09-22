@@ -1,4 +1,3 @@
-// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
-    publicPath: '/portfolio/',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -31,24 +30,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        useShortDoctype: true,
-      },
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      inject: 'body',
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: 'public/imgs', to: 'imgs' }],
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css', // 추가된 부분
+      filename: 'main.[contenthash].css',
     }),
   ],
   devServer: {
-    historyApiFallback: true, // 이 부분 수정
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'public'),
     },
