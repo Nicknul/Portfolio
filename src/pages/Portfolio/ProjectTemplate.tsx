@@ -5,6 +5,7 @@ import Modal from '../../components/Modal/Modal';
 import ProjectHeader from '../../components/Project/ProjectHeader';
 import ProjectTasks from '../../components/Project/ProjectTasks';
 import Gallery from '../../components/Project/Gallery';
+import SkillTags from '../../components/Card/SkillTags';
 
 const ProjectTemplate: React.FC = () => {
   const { project } = useProject();
@@ -24,7 +25,11 @@ const ProjectTemplate: React.FC = () => {
         github={project.github}
         notion={project.notion}
       />
+      <h2 className="text-xl font-semibold mt-6">SKILLS</h2>
+      <SkillTags languages={project.languages} />
+
       <ProjectTasks completedTasks={project.completedTasks} ongoingTasks={project.ongoingTasks} />
+
       <Gallery
         galleryImages={galleryImages}
         selectedImage={selectedImage}
