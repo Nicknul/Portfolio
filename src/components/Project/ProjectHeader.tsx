@@ -12,8 +12,8 @@ const ProjectHeader: React.FC<ProjectHeaderProps> = ({ title, image, date, githu
   return (
     <>
       <h1 className="text-3xl font-bold mb-4">{title}</h1>
+      <p className="text-gray-600 mb-2 text-sm">{date}</p>
       <img src={image} alt={title} className="w-full h-48 object-cover object-top rounded mb-4" />
-      <p className="text-gray-600 mb-2">프로젝트 기간: {date}</p>
       <div className="mt-4">
         <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline mr-4">
           GitHub
