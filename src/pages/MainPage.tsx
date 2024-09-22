@@ -11,9 +11,9 @@ const MainPage: React.FC = () => {
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/resume" element={<ResumePage />} />
-        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/" element={<PortfolioPage />} />
         <Route path="/portfolio/:id" element={<ProjectTemplate />} />
       </Routes>
     </Router>
