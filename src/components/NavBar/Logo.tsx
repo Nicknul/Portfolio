@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Logo: React.FC = () => {
   return (
-    <Link to="/" className="md:absolute md:left-0 text-gray-900 lg:pl-4 text-3xl">
+    <Link to="/home" className="md:absolute md:left-0 text-gray-900 lg:pl-4 text-3xl">
       👩🏻‍💻
     </Link>
   );
