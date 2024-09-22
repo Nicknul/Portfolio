@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
@@ -41,6 +42,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [{ from: 'public/imgs', to: 'imgs' }],
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css', // 추가된 부분
     }),
   ],
   devServer: {
