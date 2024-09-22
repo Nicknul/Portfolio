@@ -1,3 +1,4 @@
+// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -8,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
-    publicPath: './',
+    publicPath: '/portfolio/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
