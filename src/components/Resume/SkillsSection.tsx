@@ -25,7 +25,7 @@ const SkillsSection: React.FC = () => (
       <div>
         <h3 className="text-lg font-semibold">Backend</h3>
       </div>
-      <div>
+      <div className="text-sm">
         <ul className="list-disc list-inside">
           <li>Node.js</li>
           <li>Python</li>
@@ -40,7 +40,7 @@ const SkillsSection: React.FC = () => (
       <div>
         <h3 className="text-lg font-semibold">Communication</h3>
       </div>
-      <div>
+      <div className="text-sm">
         <ul className="list-disc list-inside">
           <li>GitHub</li>
           <li>Notion</li>
@@ -52,7 +52,7 @@ const SkillsSection: React.FC = () => (
       <div>
         <h3 className="text-lg font-semibold">Design</h3>
       </div>
-      <div>
+      <div className="text-sm">
         <ul className="list-disc list-inside">
           <li>Figma</li>
         </ul>
