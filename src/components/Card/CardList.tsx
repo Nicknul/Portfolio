@@ -14,6 +14,7 @@ const CardList: React.FC<CardListProps> = ({ category }) => {
       {filteredCards.map((card, index) => (
         <CardItem
           key={index}
+          id={card.id}
           image={card.image}
           date={card.date}
           title={card.title}
