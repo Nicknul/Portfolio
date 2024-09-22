@@ -11,9 +11,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => {
       {isOpen && (
         <div className="md:hidden bg-white text-gray-900 mt-4 p-4 text-sm">
           <ul className="space-y-4">
-            <NavItem label="Home" href="/" />
+            <NavItem label="Home" href="/home" />
             <NavItem label="Resume" href="/resume" />
-            <NavItem label="Portfolio" href="/portfolio" />
+            <NavItem label="Portfolio" href="/" />
             <NavItem label="GitHub" href="https://github.com/Nicknul" newTab={true} />
             <NavItem
               label="Notion"
