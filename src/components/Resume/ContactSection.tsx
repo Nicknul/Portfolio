@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ContactSection: React.FC = () => (
-  <section className="">
-    <h2 className="text-2xl font-bold mb-4">CONTACT</h2>
+  <section className="mb-6">
+    <h2 className="text-2xl font-bold mb-3">CONTACT</h2>
     <p>
       <span className="font-semibold">Email </span>
       <a href="mailto:jea7730@gmail.com" className="text-sm text-blue-500 ml-1">
