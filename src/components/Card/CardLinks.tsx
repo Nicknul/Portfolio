@@ -1,4 +1,6 @@
+// src/components/Card/CardLinks.tsx
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface CardLinksProps {
   github: string;
@@ -6,14 +8,20 @@ interface CardLinksProps {
 }
 
 const CardLinks: React.FC<CardLinksProps> = ({ github, notion }) => {
+  const navigate = useNavigate();
+
+  const handleLinkClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className="mt-4">
-      <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline mr-4">
+    <div className="mt-4 flex gap-4">
+      <button onClick={() => handleLinkClick(github)} className="text-blue-500 hover:underline">
         GitHub
-      </a>
-      <a href={notion} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+      </button>
+      <button onClick={() => handleLinkClick(notion)} className="text-blue-500 hover:underline">
         Notion
-      </a>
+      </button>
     </div>
   );
 };
