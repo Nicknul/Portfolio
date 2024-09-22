@@ -3,7 +3,6 @@ import React from 'react';
 const HomePage: React.FC = () => {
   return (
     <div className="pt-16 min-h-[calc(100vh-4rem)] w-full max-w-[90%] xl:max-w-[40%] lg:max-w-[70%] mx-auto flex flex-col items-center justify-center text-center">
-      {/* 이름과 소개 */}
       <h1 className="text-4xl font-bold mb-4">정호연</h1>
       <p className="mb-6 max-w-lg">
         안녕하세요! 신입 개발자 정호연입니다. <br /> <br />
@@ -11,7 +10,6 @@ const HomePage: React.FC = () => {
         계속해서 나아가도록 노력하고 있습니다.
       </p>
 
-      {/* Resume와 Portfolio 버튼 */}
       <div className="flex gap-4 mb-6">
         <a
           href="/resume"
@@ -20,14 +18,13 @@ const HomePage: React.FC = () => {
           Resume
         </a>
         <a
-          href="/portfolio"
+          href="/"
           className="px-6 py-2 border border-black rounded hover:bg-black hover:text-white transition duration-300"
         >
           Portfolio
         </a>
       </div>
 
-      {/* 소셜 미디어 링크 */}
       <div className="flex gap-4 mb-6">
         <a href="https://github.com/Nicknul" target="_blank" rel="noopener noreferrer">
           <img src="/imgs/github.png" alt="GitHub" className="w-8 h-8" />
@@ -41,7 +38,6 @@ const HomePage: React.FC = () => {
         </a>
       </div>
 
-      {/* Contact Me 버튼 */}
       <a
         href="jea7730@gmail.com"
         className="px-6 py-2 border border-black rounded hover:bg-black hover:text-white transition duration-300 mb-6"
