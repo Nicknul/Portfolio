@@ -1,7 +1,7 @@
 // src/data/CardData.ts
 export const cardData = [
   {
-    image: 'https://via.placeholder.com/400',
+    image: '/imgs/Profile/resume.png',
     date: '2024.09.05 - 진행 중',
     title: '포트폴리오',
     category: '싱글' as '싱글',
@@ -20,7 +20,7 @@ export const cardData = [
     ],
   },
   {
-    image: 'https://via.placeholder.com/400',
+    image: '/imgs/weather/main.png',
     date: '2024.08.15 - 진행 중',
     title: '콜록콜록, 우리동네 미세먼지',
     category: '싱글' as '싱글',
@@ -58,7 +58,7 @@ export const cardData = [
     ],
   },
   {
-    image: 'https://via.placeholder.com/400',
+    image: '/imgs/store/main.png',
     date: '2024.06.14 - 2024.07.12',
     title: '뚝딱이네 상점',
     category: '팀프로젝트' as '팀프로젝트',
@@ -76,7 +76,7 @@ export const cardData = [
     ],
   },
   {
-    image: 'https://via.placeholder.com/400',
+    image: '/imgs/lunch/main.png',
     date: '2024.06.26 - 2024.06.27',
     title: '오늘의 점심 메뉴는?',
     category: '싱글' as '싱글',
@@ -91,7 +91,7 @@ export const cardData = [
     ongoingTasks: [],
   },
   {
-    image: 'https://via.placeholder.com/400',
+    image: '/imgs/pokemon/main.png',
     date: '2024.05.19 - 2024.05.26',
     title: '포켓몬 타입',
     category: '싱글' as '싱글',
@@ -101,7 +101,7 @@ export const cardData = [
     completedTasks: [
       'npm에서 제공하는 포켓몬 이름 데이터를 JSON 형태로 가공한 패키지를 설치하여 데이터 활용 방안을 연구했습니다.',
       'Poke API를 통해 포켓몬 데이터를 받아와 포켓몬 타입과 일치하는 정보를 제공하는 기능을 구현했습니다.',
-      '포켓몬 공식 홈페이지에서 이미지를 가져와 반복문을 통해 전체 포켓몬의 이미지를 브라우저에 나타나게 했습니다.',
+      '포켓몬 공식 홈페이지에서 이미지 주소 패턴을 파악하여 반복문을 통해 전체 포켓몬의 이미지를 브라우저에 나타나게 했습니다.',
     ],
     ongoingTasks: ['상단 탭에서 타입을 선택하면 해당 타입의 포켓몬만 필터링하여 표시되도록 기능을 추가할 예정입니다.'],
   },
