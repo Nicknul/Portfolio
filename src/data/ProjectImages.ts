@@ -1,5 +1,5 @@
 export const projectImages = {
-  portfolio: ['/imgs/portfolio/image1.jpg', '/imgs/portfolio/image2.jpg', '/imgs/portfolio/image3.jpg'],
+  portfolio: ['/imgs/Profile/resume.png', '/imgs/Profile/project-page.png', '/imgs/Profile/figma.png'],
   erp: [
     '/imgs/ERP/drawio.png',
     '/imgs/ERP/google-sheet.png',
@@ -14,8 +14,27 @@ export const projectImages = {
     '/imgs/ERP/setting.png',
     '/imgs/ERP/password.png',
   ],
-  weather: ['/imgs/weather/image1.jpg', '/imgs/weather/image2.jpg', '/imgs/weather/image3.jpg'],
-  shop: ['/imgs/shop/image1.jpg', '/imgs/shop/image2.jpg', '/imgs/shop/image3.jpg'],
-  lunch: ['/imgs/lunch/image1.jpg', '/imgs/lunch/image2.jpg', '/imgs/lunch/image3.jpg'],
-  pokemon: ['/imgs/pokemon/image1.jpg', '/imgs/pokemon/image2.jpg', '/imgs/pokemon/image3.jpg'],
+  weather: ['/imgs/weather/main.png', '/imgs/weather/figma.png', '/imgs/weather/figjam.png'],
+  store: [
+    '/imgs/store/figjam.png',
+    '/imgs/store/main.png',
+    '/imgs/store/id.png',
+    '/imgs/store/back.png',
+    '/imgs/store/title.png',
+    '/imgs/store/shop.png',
+    '/imgs/store/history.png',
+    '/imgs/store/receipt-1.png',
+    '/imgs/store/buy-list.png',
+    '/imgs/store/receipt-2.png',
+    '/imgs/store/database.png',
+  ],
+  lunch: ['/imgs/lunch/main.png', '/imgs/lunch/main-code.png'],
+  pokemon: [
+    '/imgs/pokemon/main.png',
+    '/imgs/pokemon/normal.png',
+    '/imgs/pokemon/fire.png',
+    '/imgs/pokemon/water.png',
+    '/imgs/pokemon/grass.png',
+    '/imgs/pokemon/electricity.png',
+  ],
 };
