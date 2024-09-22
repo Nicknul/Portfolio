@@ -37,9 +37,6 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
     compress: true,
     port: 3001,
     open: true,
