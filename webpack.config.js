@@ -1,6 +1,7 @@
+// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -38,11 +39,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'public/imgs', to: 'imgs' }],
+    }),
   ],
   devServer: {
-    historyApiFallback: {
-      rewrites: [{ from: /^\/portfolio\/.*$/, to: '/index.html' }],
-    },
+    historyApiFallback: true, // 이 부분 수정
     static: {
       directory: path.join(__dirname, 'public'),
     },
