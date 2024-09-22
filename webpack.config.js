@@ -1,4 +1,3 @@
-// webpack.config.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -40,4 +39,15 @@ module.exports = {
       filename: '[name].[contenthash].css',
     }),
   ],
+  devServer: {
+    historyApiFallback: {
+      rewrites: [{ from: /^\/portfolio\/.*$/, to: '/index.html' }],
+    },
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 3001,
+    open: true,
+  },
 };
