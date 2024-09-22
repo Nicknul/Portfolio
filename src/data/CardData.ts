@@ -1,6 +1,6 @@
-// src/data/CardData.ts
 export const cardData = [
   {
+    id: 'portfolio',
     image: '/imgs/Profile/resume.png',
     date: '2024.09.05 - 진행 중',
     title: '포트폴리오',
@@ -20,6 +20,7 @@ export const cardData = [
     ],
   },
   {
+    id: 'weather',
     image: '/imgs/weather/main.png',
     date: '2024.08.15 - 진행 중',
     title: '콜록콜록, 우리동네 미세먼지',
@@ -39,6 +40,7 @@ export const cardData = [
     ],
   },
   {
+    id: 'erp',
     image: '/imgs/ERP/ERP_main.png',
     date: '2024.07.15 - 2024.08.14',
     title: 'ERP',
@@ -54,10 +56,11 @@ export const cardData = [
     ],
     ongoingTasks: [
       '조회되는 테이블의 데이터가 일정 크기를 초과할 경우 가로 및 세로 스크롤이 생성되도록 개선하고 있습니다.',
-      '전체 프로젝트의 코드 스타일을 일관성 있게 유지하기 위해 Tailwind CSS 리팩토링을 진행 중입니다.',
+      '전체 프로젝트의 코드 스타일을 일관성 있게 유지하기 위해 Tailwind CSS 리펙토링을 진행 중입니다.',
     ],
   },
   {
+    id: 'store',
     image: '/imgs/store/main.png',
     date: '2024.06.14 - 2024.07.12',
     title: '뚝딱이네 상점',
@@ -76,6 +79,7 @@ export const cardData = [
     ],
   },
   {
+    id: 'lunch',
     image: '/imgs/lunch/main.png',
     date: '2024.06.26 - 2024.06.27',
     title: '오늘의 점심 메뉴는?',
@@ -91,6 +95,7 @@ export const cardData = [
     ongoingTasks: [],
   },
   {
+    id: 'pokemon',
     image: '/imgs/pokemon/main.png',
     date: '2024.05.19 - 2024.05.26',
     title: '포켓몬 타입',
